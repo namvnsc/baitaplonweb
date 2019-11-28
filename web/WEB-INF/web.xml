@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>Servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ImageServlet</servlet-name>
+        <servlet-class>Servlet.ImageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CodeExecuteServlet</servlet-name>
+        <servlet-class>Servlet.CodeExecuteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignUpServlet</servlet-name>
+        <servlet-class>Servlet.SignUpServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>Servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListContest_Servlet</servlet-name>
+        <servlet-class>Servlet.contest.ListContest_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/Views/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ImageServlet</servlet-name>
+        <url-pattern>/Views/img</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CodeExecuteServlet</servlet-name>
+        <url-pattern>/run-code</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignUpServlet</servlet-name>
+        <url-pattern>/Views/signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/Views/logout</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <!--    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Entire Application</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>-->
+    <servlet-mapping>
+        <servlet-name>ListContest_Servlet</servlet-name>
+        <url-pattern>/listcontest</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>Contest_Servlet</servlet-name>
+        <servlet-class>Servlet.contest.Contest_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Contest_Servlet</servlet-name>
+        <url-pattern>/contest</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Problem_Servlet</servlet-name>
+        <servlet-class>Servlet.contest.Problem_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Problem_Servlet</servlet-name>
+        <url-pattern>/problem</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Submission_Servlet</servlet-name>
+        <servlet-class>Servlet.contest.Submission_Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Submission_Servlet</servlet-name>
+        <url-pattern>/submission</url-pattern>
+    </servlet-mapping>
+</web-app>

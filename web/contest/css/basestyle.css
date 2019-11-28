@@ -1,0 +1,102 @@
+
+.header {
+    width: 100%;
+    height: 150px;
+    background-image: url('../img/banner.jpg');
+    background-color: blue;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+}
+.headerEmp1{
+    width: 35%;
+    height: inherit;
+    float: left;
+}
+/*.headerCenter{
+    width: 65%;
+    height: inherit;
+    float: left;
+}*/
+.headerEmp2{
+    width: 20%;
+    height: inherit;
+    float: right;
+}
+.footer {
+    clear: both;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(44, 40, 40);
+    float: bottom;
+}
+.beginfooter{
+    width: 5%;
+    height: inherit;
+    float: left;
+}
+.contact{
+    width: 70%;
+    height: inherit;
+    float: left;
+    font-size: 13px;
+    font-family:monospace;
+    color: white;
+}
+.contactIcon {
+    width: 20px;
+    height: 20px;
+}
+.header-menu{
+    float: left;
+    margin-left: 40%;
+}
+.button-header {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #000066;
+}
+
+.img-container1{
+    margin: 0 auto;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+    width: 20%;
+    /*height: 200px;*/
+    text-align:center;
+    float: left;
+    background-color: green;
+    margin-top: 0;
+}
+
+.text-justify{
+    font-size: 15px;
+    text-align: justify!important;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    margin-left: 15%;
+    font-family: monospace;
+    box-sizing: border-box;
+}
+.ItemMenu{
+    /*display: block;*/
+    background-color: white;
+    color: black;
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 10px;
+}

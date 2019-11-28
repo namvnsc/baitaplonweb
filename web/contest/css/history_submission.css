@@ -1,0 +1,25 @@
+body{
+    height: 700px;
+}
+
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: #FFF8DC;
+    width: 95%;
+    align-content: center;
+}
+
+thead{
+    height: 50px;
+    border: 2px solid black;
+    border-collapse: collapse;
+    background-color: cyan;
+}
+
+tr, td{
+    /*height: 70px;*/
+    border: 1px solid black;
+    border-collapse: collapse;
+    align-content: center;
+}
