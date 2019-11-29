@@ -24,6 +24,14 @@
         <servlet-name>ListContest_Servlet</servlet-name>
         <servlet-class>Servlet.contest.ListContest_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Register_Servlet</servlet-name>
+        <servlet-class>Servlet.contest.Register_Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ScoreBoard_Servlet</servlet-name>
+        <servlet-class>Servlet.contest.ScoreBoard_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Views/login</url-pattern>
@@ -44,6 +52,14 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/Views/logout</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Register_Servlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ScoreBoard_Servlet</servlet-name>
+        <url-pattern>/scoreboard</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -62,8 +78,6 @@
         <servlet-name>ListContest_Servlet</servlet-name>
         <url-pattern>/listcontest</url-pattern>
     </servlet-mapping>
-    
-    
     <servlet>
         <servlet-name>Contest_Servlet</servlet-name>
         <servlet-class>Servlet.contest.Contest_Servlet</servlet-class>
@@ -72,7 +86,6 @@
         <servlet-name>Contest_Servlet</servlet-name>
         <url-pattern>/contest</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>Problem_Servlet</servlet-name>
         <servlet-class>Servlet.contest.Problem_Servlet</servlet-class>
@@ -81,7 +94,6 @@
         <servlet-name>Problem_Servlet</servlet-name>
         <url-pattern>/problem</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>Submission_Servlet</servlet-name>
         <servlet-class>Servlet.contest.Submission_Servlet</servlet-class>

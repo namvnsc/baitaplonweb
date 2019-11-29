@@ -29,11 +29,11 @@ public class Register {
         this.contest = contest;
     }
 
-    public TaiKhoan getAcc() {
+    public TaiKhoan getTaiKhoan() {
         return acc;
     }
 
-    public void setAcc(TaiKhoan acc) {
+    public void setTaiKhoan(TaiKhoan acc) {
         this.acc = acc;
     }
 

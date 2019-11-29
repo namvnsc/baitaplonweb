@@ -39,6 +39,25 @@ public class DAO_Problem implements BaseDAO{
         return ds;
     }
 
+    public Problem getBySoThuThu(String maContest, int soThuTu){
+        Problem p = new Problem();
+        String sql = "select * from Problem where Ma_Contest=? and So_Thu_Tu=?";
+        try{
+            PreparedStatement pre = con.prepareStatement(sql);
+            pre.setString(1, maContest);
+            pre.setInt(2, soThuTu);
+            ResultSet rs = pre.executeQuery();
+            if(rs.next()){
+                p.setDiem(rs.getInt("Diem"));
+                p.setSoThuTu(rs.getInt("So_Thu_Tu"));
+                p.setBaiTap((new DAO_BaiTap()).getByCode(rs.getString("Ma_Bai_Tap")));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO_Problem.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return p;
+    }
+    
     @Override
     public List findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

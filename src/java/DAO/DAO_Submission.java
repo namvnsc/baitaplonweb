@@ -55,6 +55,36 @@ public class DAO_Submission implements BaseDAO {
         return ds;
     }
 
+    public ArrayList<Submission> getAllForBaiTap(String maBaiTap, String username) {
+        ArrayList<Submission> ds = new ArrayList<>();
+        String sql = " select Submission.* from Submission, Bai_Tap "
+                + "  where Submission.Username=? and "
+                + "  Submission.Ma_Bai_Tap=?";
+        try {
+            PreparedStatement pre = con.prepareStatement(sql);
+            pre.setString(1, username);
+            pre.setString(2, maBaiTap);
+            ResultSet rs = pre.executeQuery();
+            TaiKhoan tk = new TaiKhoan(username, null);
+            while (rs.next()) {
+                Submission s = new Submission();
+                s.setId(rs.getInt("ID"));
+                s.setTaiKhoan(tk);
+                s.setBaiTap((new DAO_BaiTap()).getByCode(rs.getString("Ma_Bai_Tap")));
+                s.setCode(rs.getString("Code"));
+                s.setTrangThai(rs.getString("Trang_Thai"));
+                Date t = new Date();
+                t.setTime(rs.getTimestamp("Thoi_Diem_Submit").getTime() + 7 * 60 * 60 * 1000);
+                s.setThoiDiemSubmit(t);
+                ds.add(s);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO_Submission.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Collections.sort(ds, (Submission s1, Submission s2) -> (int) (s1.getThoiDiemSubmit().getTime() - s2.getThoiDiemSubmit().getTime()));
+        return ds;
+    }
+    
     public Submission getById(int id) {
         Submission s = new Submission();
         String sql = "select Submission.* from Submission where ID=?";

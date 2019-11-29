@@ -11,7 +11,6 @@
         <div class="list_contest">
             <h1> DANH SÁCH CONTEST </h1>
             <table id="table_contend">
-                <tr><td class="ten_contest_column">Tên contest </td> <td class="thoi_gian_colum">Thời gian</td> <td class="trang_thai_column">Trạng thái</td></tr>
             </table>
         </div>
         <jsp:include page="div_footer.jsp"></jsp:include>
@@ -27,10 +26,26 @@
                             response.json().then(function (data) {
                                 myObj = data;
                                 
-                                var txt = "<tr><td class=\"ten_contest_column\"> Tên contest </td> <td class=\"thoi_gian_colum\">Thời gian</td> <td class=\"trang_thai_column\">Trạng thái</td><td>link</td></tr>";
+                                var txt =   "<tr>"+
+                                                "<td > NAME </td>"+
+                                                "<td >START</td>"+
+                                                "<td >LENGTH</td>"+
+                                                "<td >STATE</td>"+
+                                                "<td >ENTER</td>"+
+                                            "</tr>";
                                 for (x in myObj) {
-                                    txt += "<tr><td>" + myObj[x].ten + "</td><td>" + myObj[x].thoiDiemBatDau + "</td><td>" + myObj[x].trangThai + "</td>";
-                                    txt += "<td><a href=\"contest.jsp?maContest=" + myObj[x].ma + "\">tham gia </a></td></tr>";
+                                    txt +=  "<tr>"+
+                                                "<td>" + myObj[x].ten + "</td>"+
+                                                "<td>" + new Date(myObj[x].thoiDiemBatDau) + "</td>" +
+                                                "<td>" + myObj[x].thoiGian + "</td>" +
+                                                "<td>" + myObj[x].trangThai + "</td>";
+                                    if(myObj[x].trangThai=="Đã kết thúc" || myObj[x].trangThai=="Đang diễn ra"){
+                                        txt +=      "<td><a href=\"contest.jsp?maContest=" + myObj[x].ma + "\"> tham gia </a></td>"+
+                                            "</tr>";
+                                    } else {
+                                        txt +=      "<td><a href=\"register.jsp?maContest=" + myObj[x].ma + "\"> Đăng ký </a></td>"+
+                                            "</tr>";  
+                                    }
                                 }
                                 document.getElementById("table_contend").innerHTML = txt;
                             });

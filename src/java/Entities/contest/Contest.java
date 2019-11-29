@@ -9,7 +9,7 @@ import java.util.Date;
 public class Contest {
     private String ma;
     private String ten;
-    private Date thoiDiemBatDau;
+    private long thoiDiemBatDau;
     private float thoiGian;
     private String trangThai;
     private ArrayList<Problem> listProblem;
@@ -22,11 +22,11 @@ public class Contest {
         this.ma = ma;
     }
 
-    public Date getThoiDiemBatDau() {
+    public long getThoiDiemBatDau() {
         return thoiDiemBatDau;
     }
 
-    public void setThoiDiemBatDau(Date thoiDiemBatDau) {
+    public void setThoiDiemBatDau(long thoiDiemBatDau) {
         this.thoiDiemBatDau = thoiDiemBatDau;
     }
 
@@ -47,12 +47,9 @@ public class Contest {
     }
     
     public void setTrangThai(){
-        Date hienTai = new Date();
-        Date thoiDiemKetThuc = new Date();
-        thoiDiemKetThuc.setTime(this.thoiDiemBatDau.getTime() + (long)this.thoiGian*60*60*1000);
-        if(hienTai.before(this.thoiDiemBatDau)) this.trangThai="Chưa diễn ra";
+        if((new Date()).getTime()-thoiDiemBatDau<0) this.trangThai="Chưa diễn ra";
         else{
-            if(hienTai.after(thoiDiemKetThuc)) this.trangThai="Đã kết thúc";
+            if((new Date()).getTime()-thoiDiemBatDau-(long)(thoiGian*60*60*1000)>0) this.trangThai="Đã kết thúc";
             else{
                 this.trangThai="Đang diễn ra";
             }

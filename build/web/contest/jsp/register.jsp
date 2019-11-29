@@ -1,49 +1,35 @@
+<%-- 
+    Document   : register
+    Created on : Nov 28, 2019, 9:20:57 PM
+    Author     : Admin
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="../css/problem.css" rel="stylesheet" type="text/css">
-        <link href="../css/basestyle.css" rel="stylesheet" type="text/css">
+        <title>register contest</title>
+        <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
     </head>
     <body>
         <jsp:include page="div_header.jsp"></jsp:include>
-        <div class="DivMenu">
-                <a href="history_submission.jsp?username=<%=session.getAttribute("username")%>&maContest=<%=request.getParameter("maContest")%>" class="ItemMenu">History submission</a>
-                <a href="score_board.jsp?maContest=<%=request.getParameter("maContest")%>" class="ItemMenu">Score Board</a>
-                <a href="contest.jsp?maContest=<%=request.getParameter("maContest")%>" class="ItemMenu">List Problem</a>
-                <a href="list_contest.jsp" class="ItemMenu">List Contest</a>
-            </div>
-            <div class="list_contest">
-                <h1 id="tenbaitap"></h1>
-                <pre id="debai"></pre>
-                <!--<div id="vidu"></div>-->
-                <h2>Online Code C Editor</h2>
-                <textarea id="CodeEditorArea" id="input">
-#include <stdio.h>
-int main()
-{
-   //do your code here
-   return 0;
-}
-                </textarea>
-                <br>
-                <input type="file" onclick="submitCode()"> chọn file </button> 
-                <button onclick="submitCode()"> submit </button>
-            </div>
+        <div class="list_contest">
+            <h1 id="thongbao"> Đang yêu cầu đăng ký </h1>
+            <h1> Đếm ngược </h1>
+            <h1 id="clock"></h1>
+        </div>
         <jsp:include page="div_footer.jsp"></jsp:include>
-        </body>
-        <script>
-            function submitCode() {
-                var data = {
+    </body>
+    <script>
+        var data = {
                     Username: '<%=session.getAttribute("username")%>',
-                    MaBaiTap: '<%=request.getParameter("maBaiTap")%>',
-                    Code: document.getElementById("CodeEditorArea").value,
-                    ThoiDiemSubmit: new Date()
+                    MaContest: '<%=request.getParameter("maContest")%>'
+//                    ThoiDiemDangKy: new String(new Date().getTime())
                 }
                 var x = JSON.stringify(data);
 //                alert(x);
-                fetch('../../submission', {
+                fetch('../../register', {
                     method: 'POST', // *GET, POST, PUT, DELETE, etc.
                     //mode: 'cors', // no-cors, *cors, same-origin
                     //cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -62,10 +48,10 @@ int main()
                                 return;
                             }
                             response.json().then(function (data) {
-                                if (data.ThongBao == 'submit thành công') {
-                                    window.location.href="history_submission.jsp?username="+'<%=session.getAttribute("username")%>'+"&maContest=<%=request.getParameter("maContest")%>";
+                                if (data.ThongBao == 'Register thành công') {
+                                    document.getElementById('thongbao').innerHTML="Bạn đã đăng ký thành công";
                                 } else {
-                                    alert("submit ko thành công");
+                                    document.getElementById('thongbao').innerHTML="Bạn đã đăng ký không thành công";
                                 }
                             });
                         }
@@ -73,11 +59,8 @@ int main()
                         .catch(function (err) {
                             console.log('Fetch Error :-S', err);
                         });
-                ;
-            }
-    </script>
-    <script>
-        fetch('../../problem?maBaiTap=<%=request.getParameter("maBaiTap")%>')
+        var h = 0, s = 0, m = 0;
+        fetch('../../contest?maContest=<%=request.getParameter("maContest")%>')
                 .then(
                         function (response) {
                             if (response.status !== 200) {
@@ -85,13 +68,39 @@ int main()
                                 return;
                             }
                             response.json().then(function (data) {
-                                document.getElementById("tenbaitap").innerHTML = data.ten;
-                                document.getElementById("debai").innerHTML = data.deBai;
+                                var t = data.thoiDiemBatDau;
+                                t = t-(new Date()).getTime();
+                                t = Math.floor(t/1000);
+                                h = Math.floor(t/(60*60));
+                                t = t-h*60*60;
+                                m = Math.floor(t/60);
+                                t = t-m*60;
+                                s = Math.floor(t);
+//                                alert(h+" : "+ m +" : "+s);
                             });
                         }
                 )
                 .catch(function (err) {
                     console.log('Fetch Error :-S', err);
                 });
+        function demNguoc(){
+            if(s===-1){
+                s=59;
+                m = m-1;
+                if(m===-1){
+                    m=59;
+                    h = h-1;
+                    if(h===-1){
+                        clearTimeout(false);
+                        window.location.href = "contest.jsp?maContest=<%=request.getParameter("maContest")%>";
+                    }
+                }
+            }
+            document.getElementById('clock').innerHTML = h+" : "+ m +" : "+s;
+        }
+        setInterval(function(){
+            s--;
+            demNguoc();
+        }, 1000);
     </script>
 </html>

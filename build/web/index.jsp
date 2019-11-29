@@ -41,7 +41,7 @@
                         <span style="font-size: 16px;">
                             <% if ( request.getParameter("access")!=null) { %>
                             <span style="color: red;">Thất bại</span>
-                            <% } %>Chưa có tài khoản?<a href="signUp.jsp">Đăng ký ngay</a></span>
+                            <% } %>Chưa có tài khoản?<a href="Views/signUp.jsp">Đăng ký ngay</a></span>
                     </form>
                     <%  }%>
                 </div>

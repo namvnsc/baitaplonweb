@@ -2,21 +2,30 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="../css/basestyle.css" rel="stylesheet" type="text/css">
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>danh sách contest</title>
         <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
     </head>
     <body>
         <jsp:include page="div_header.jsp"></jsp:include>
-        <jsp:include page="div_menu.jsp"></jsp:include>
-        <div class="list_contest">
-            <table id="table_problem_contend">
-            </table>
-        </div>
+            <div class="DivMenu">
+                <a href="history_submission.jsp?username=<%=session.getAttribute("username")%>&maContest=<%=request.getParameter("maContest")%>" class="ItemMenu">History submission</a>
+                <a href="score_board.jsp?maContest=<%=request.getParameter("maContest")%>" class="ItemMenu">Score Board</a>
+                <a href="contest.jsp?maContest=<%=request.getParameter("maContest")%>" class="ItemMenu">List Problem</a>
+                <a href="list_contest.jsp" class="ItemMenu">List Contest</a>
+            </div>
+            <div >
+                <h1 id="tenContest"> CONTEST </h1>
+                <h2 > List problem </h2>
+                <table id="table_problem_contend">
+                </table>
+            </div>
         <jsp:include page="div_footer.jsp"></jsp:include>
-    </body>
-    <script>
-        fetch('../../contest?maContest=<%=request.getParameter("maContest")%>')
+        </body>
+        <script>
+        fetch('../../contest?maContest=<%=request.getParameter("maContest")%>&username=<%=session.getAttribute("username")%>')
                 .then(
                         function (response) {
                             if (response.status !== 200) {
@@ -24,10 +33,23 @@
                                 return;
                             }
                             response.json().then(function (data) {
-                                var txt = "<tr><td class=\"STTColumn\"> STT </td> <td class=\"ProblemColumn\">Problem</td> <td class=\"DiemColumn\">Điểm</td><td>link</td></tr>";
-                                for (x in data) {
-                                    txt += "<tr><td>" + data[x].soThuTu + "</td><td>" + data[x].baiTap.ten + "</td><td>" + data[x].diem + "</td>";
-                                    txt += "<td><a href=\"problem.jsp?maBaiTap=" + data[x].baiTap.ma + "&maContest=" + '<%=request.getParameter("maContest")%>' +"\"> làm bài </a></td></tr>";
+                                document.getElementById("tenContest").innerHTML = "Contest "+data.contest.ten;
+                                var txt = "<tr>" +
+                                        "<td class=\"STTColumn\"> STT </td>" +
+                                        "<td class=\"ProblemColumn\">Problem</td>" +
+                                        "<td class=\"DiemColumn\">Score</td>" +
+                                        "<td class=\"DiemColumn\">Solve</td>" +
+                                        "<td>Enter</td>" +
+                                        "</tr>";
+                                tmp = data.listRs
+                                for (x in tmp) {
+                                    txt += "<tr>" +
+                                            "<td>" + tmp[x].problem.soThuTu + "</td>" +
+                                            "<td>" + tmp[x].problem.baiTap.ten + "</td>" +
+                                            "<td>" + tmp[x].problem.diem + "</td>" +
+                                            "<td>" + tmp[x].trangThai + "</td>" +
+                                            "<td><a href=\"problem.jsp?maBaiTap=" + tmp[x].problem.baiTap.ma + "&maContest=" + '<%=request.getParameter("maContest")%>' + "\"> làm bài </a></td>" +
+                                            "</tr>";
                                 }
                                 document.getElementById("table_problem_contend").innerHTML = txt;
                             });

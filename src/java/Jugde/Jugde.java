@@ -12,20 +12,20 @@ import java.util.logging.Logger;
 public class Jugde {
 
     private ProcessBuilder process;
+    private String name;
     private File srcFile;
     private File inputFile;
     private File outputFile;
-    private File ansFile;
+    private File outOfSub;
     private File errorFile;
     private int timeLimit;
 
-    public Jugde(String name, int id, int timeLimit) {
-        String path = "C:\\Users\\Admin\\Documents\\NetBeansProjects\\WebApplication1\\src\\java\\Jugde\\";
-        srcFile = new File(path + "Source\\" + name+id);
-        inputFile = new File(path + "Input\\" + name + "Input.txt");
-        outputFile = new File(path + "Output\\" + name+id + "Output.txt");
-        ansFile = new File(path + "Ans\\" + name + "Ans.txt");
-        errorFile = new File(path + "Error\\" + name+id + "Error.txt");
+    public Jugde(String name, int timeLimit) {
+        this.name = (new File("")).getAbsolutePath()+"\\"+name;
+        inputFile = new File(name + "Input.txt");
+        outputFile = new File(name + "Output.txt");
+        outOfSub = new File(name + "OutOfSub.txt");
+        errorFile = new File((new File("")).getAbsolutePath() + "\\Error.txt");
         this.timeLimit = timeLimit;
         process = new ProcessBuilder();
     }
@@ -42,7 +42,7 @@ public class Jugde {
     }
 
     private String _compile() {
-        process.command("cmd.exe", "/c", "g++ " + srcFile + ".cpp" + " -o " + srcFile);
+        process.command("cmd.exe", "/c", "g++ " +name+".cpp" + " -o " + name);
         try {
             process.redirectError(errorFile);
             java.lang.Process pro = process.start();
@@ -52,12 +52,12 @@ public class Jugde {
             BufferedReader out = new BufferedReader(loi);
             String line = out.readLine();
             if (line != null) {
-//                out.close();
-//                loi.close();
+                out.close();
+                loi.close();
                 return "Compiler Error";
             }
-//            out.close();
-//            loi.close();
+            out.close();
+            loi.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Jugde.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -67,9 +67,9 @@ public class Jugde {
     }
 
     private synchronized String _run() {
-        process.command("cmd.exe", "/c", srcFile + ".exe");
+        process.command("cmd.exe", "/c", name + ".exe");
         process.redirectInput(inputFile);
-        process.redirectOutput(outputFile);
+        process.redirectOutput(outOfSub);
         process.redirectError(errorFile);
         try {
             Thread th = new Thread();
@@ -91,8 +91,8 @@ public class Jugde {
 
     private String _check() {
         try {
-            FileReader out = new FileReader(outputFile);
-            FileReader ans = new FileReader(ansFile);
+            FileReader out = new FileReader(outOfSub);
+            FileReader ans = new FileReader(outputFile);
             BufferedReader rDapAn = new BufferedReader(ans);
             BufferedReader rDauRa = new BufferedReader(out);
             String line = "s";
@@ -129,19 +129,9 @@ public class Jugde {
             out.close();
             ans.close();
             return "Accept";
-        } catch (Exception e) {
-            return "ErrorE";
-        }
+        } catch (IOException ex) {
+            Logger.getLogger(Jugde.class.getName()).log(Level.SEVERE, null, ex);
+            return "ErrorIOE";
+        } 
     }
-
-    public boolean clear() {
-        srcFile.deleteOnExit();
-        outputFile.deleteOnExit();
-        errorFile.deleteOnExit();
-        if (srcFile.delete() && outputFile.delete() && errorFile.delete()) {
-            return true;
-        }
-        return false;
-    }
-
 }

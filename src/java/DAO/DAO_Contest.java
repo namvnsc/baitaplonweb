@@ -29,11 +29,9 @@ public class DAO_Contest implements BaseDAO{
                 Contest c = new Contest();
                 c.setMa(rs.getString("Ma"));
                 c.setTen(rs.getString("Ten"));
-                Date t = new Date();
-                t.setTime(rs.getTime("Thoi_Diem_Bat_Dau").getTime() 
+                c.setThoiDiemBatDau(rs.getTime("Thoi_Diem_Bat_Dau").getTime() 
                         + rs.getDate("Thoi_Diem_Bat_Dau").getTime()
                         + 7*60*60*1000);
-                c.setThoiDiemBatDau(t);
                 c.setThoiGian(rs.getFloat("Thoi_Gian"));
                 c.setTrangThai();
                 ds.add(c);
@@ -42,8 +40,30 @@ public class DAO_Contest implements BaseDAO{
             Logger.getLogger(DAO_Contest.class.getName()).log(Level.SEVERE, null, ex);
         }
         Collections.sort(ds, 
-                (Contest o1, Contest o2) -> (int)(o1.getThoiDiemBatDau().getTime()-o2.getThoiDiemBatDau().getTime()));
+                (Contest o1, Contest o2) -> (int)(-o1.getThoiDiemBatDau()+o2.getThoiDiemBatDau()));
         return ds;
+    }
+    
+    public Contest getByCode(String ma){
+        Contest c = new Contest();
+        String sql = "select * from contest where Ma=?";
+        try{
+            PreparedStatement pre = con.prepareStatement(sql);
+            pre.setString(1, ma);
+            ResultSet rs = pre.executeQuery();
+            while(rs.next()){
+                c.setMa(rs.getString("Ma"));
+                c.setTen(rs.getString("Ten"));
+                c.setThoiDiemBatDau(rs.getTime("Thoi_Diem_Bat_Dau").getTime() 
+                        + rs.getDate("Thoi_Diem_Bat_Dau").getTime()
+                        + 7*60*60*1000);
+                c.setThoiGian(rs.getFloat("Thoi_Gian"));
+                c.setTrangThai();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO_Contest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return c;
     }
 
     @Override

@@ -4,9 +4,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="../css/problem.css" rel="stylesheet" type="text/css">
+        <link href="../css/basestyle.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <jsp:include page="div_header.jsp"></jsp:include>
+        <div class="DivMenu">
+                <a href="history_submission.jsp?username=<%=session.getAttribute("username")%>&maContest=<%=request.getParameter("maContest")%>" class="ItemMenu">History submission</a>
+                <a href="score_board.jsp?maContest=<%=request.getParameter("maContest")%>" class="ItemMenu">Score Board</a>
+                <a href="contest.jsp?maContest=<%=request.getParameter("maContest")%>" class="ItemMenu">List Problem</a>
+                <a href="list_contest.jsp" class="ItemMenu">List Contest</a>
+            </div>
             <div class="list_contest">
                 <h1 id="tenbaitap"></h1>
                 <pre id="debai"></pre>

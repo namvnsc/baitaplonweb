@@ -2,13 +2,17 @@
 package x;
 
 import DAO.DAO_Contest;
+import DAO.DAO_Register;
 import DAO.KhoaHocDAO;
 import DAO.TaiKhoanDAOImpl;
 import DAO.DAO_Submission;
+import DTO.DTO_ScoreBoard;
 import Entities.KhoaHoc;
 import Entities.TaiKhoan;
 import Entities.contest.BaiTap;
 import Entities.contest.Contest;
+import Entities.contest.ResultBoard;
+import Entities.contest.ScoreBoard;
 import Entities.contest.Submission;
 import Jugde.ProcessJugde;
 import Servlet.LoginServlet;
@@ -32,7 +36,11 @@ import javax.servlet.http.HttpSession;
 public class tmp {
 
     public static void main(String[] args) {
-        (new ProcessJugde(54)).run();
+        ScoreBoard sb = (new DTO_ScoreBoard()).get("MD");
+//        if(!(new DAO_Register()).checkRegister("a", "SPRING")){
+//            (new DAO_Register()).save("a", "SPRING");
+//        }
+//        (new ProcessJugde(51)).run();
 //        ArrayList<Contest> list = (new DAO_Contest()).getAll();
 //        System.out.println(list.size());
 //        Jugde j = new Jugde("tmp", 1000);
@@ -47,7 +55,7 @@ public class tmp {
 //        } catch (ParseException ex) {
 //            Logger.getLogger(Submission_Servlet.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-//        Submission sub = new Submission();
+//        Submission sub     = new Submission();
 //        sub.setTaiKhoan(new TaiKhoan("a", null));
 //        BaiTap baiTap = new BaiTap();
 //        baiTap.setMa("b1");

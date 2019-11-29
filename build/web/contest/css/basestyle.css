@@ -92,6 +92,10 @@
     font-family: monospace;
     box-sizing: border-box;
 }
+.DivMenu{
+    float: right;
+}
+
 .ItemMenu{
     /*display: block;*/
     background-color: white;
@@ -99,4 +103,5 @@
     border: 2px solid;
     border-radius: 10px;
     padding: 10px;
+    float: right;
 }
