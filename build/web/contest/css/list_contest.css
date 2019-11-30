@@ -38,3 +38,27 @@ tr, td{
 .trang_thai_column{
     width: 25%;
 }
+
+
+#headerCenter{
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+#headerEmp2{
+    width: 35%;
+    height: inherit;
+    float: right;
+}
+
+#header-menu{
+    float: left;
+    margin-left: 40%;
+}
+
+#headerEmp1{
+    width: 35%;
+    height: 100%;
+    float: left;
+}
+
