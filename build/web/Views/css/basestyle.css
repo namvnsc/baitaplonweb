@@ -1,35 +1,189 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Nov 20, 2019, 6:07:42 PM
-    Author     : ABC
-*/
+
 #all{
-    height: 700px;
-}
-#header {
+  
     width: 100%;
-    height: 25%;
-    background-image: url('../resources/banner.jpg');
-    background-color: blue;
+    margin: 0px auto;
+  
+}
+
+#headerone{
+    width: 100%;
+    margin: 0px auto;
+    height: 70px;
+    background-color: whitesmoke;
+    position: fixed;
+
+}
+
+#headerone11{
+    width: 5%;
+    height: 100%;
+    float: left;
+}
+#headerone1{
+    width: 10%;
+    height: 100%;
+    float: left;
+}
+#headerone22{
+    width: 45%;
+    height: 100%;
+    float:left;
+    padding: 10px
+  
+}
+#headerone2{
+    width: 25%;
+    height: 100%;
+    float:left;
+    padding: 13px
+  
+}
+
+#headerone3{
+    width: 10%;
+    height: 100%;
+    float:right;
+  
+}
+
+#menu{
+    background-color: whitesmoke;
+    height: 48px;
+    width: 100%;
+}
+
+
+#menu1{
+    height: 100%;
+    width: 5%;
+    float: left;
+}
+
+#menuuu{
+    height: 100%;
+    width: 95%;
+    float: left;
+}
+
+#menu3{
+    height: 100%;
+    width: 5%;
+    float: right;
+}
+
+#all1{
+  
+    width: 100%;
+    margin: 0px auto;
+/*    background-image: url('../resources/b4.jpg');*/
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: black;
+    margin: 0px auto
+    
 }
-#headerEmp1{
-    width: 35%;
+#header {
+    width: 100%;
+    height: 200px;
+    background-image: url('../resources/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+    margin: 0px auto;
+  
+}
+#thua{
+    width: 100%;
+    height: 100px;
+    background-color: white;
+}
+#header1 {
+    width: 100%;
+    height: 700px;
+    background-image: url('../resources/ten.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+    margin: 0px auto;
+    color: white;
+  
+}
+
+#header2 {
+    width: 100%;
+    height: 700px;
+    background-image: url('../resources/elll.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+    margin: 0px auto;
+    color: white;
+    background-size: 100%;
+  
+}
+
+#header3 {
+    width: 100%;
+    height: 700px;
+    background-image: url('../resources/home.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: black;
+    margin: 0px auto;
+    color: white;
+  
+}
+
+#h21{
     height: 100%;
+    width: 20%;
+    float: left;
+    margin-left: 100px;
+}
+
+#h22{
+    height: 100%;
+    width: 80%;
+    float: left;
+        
+}
+#h23{
+    height: 100%;
+    width: 20%;
+    float: right;
+    margin-right: 50px;
+    margin-left: 750px;
+}
+
+#h11{
+    width: 60%;
+    height: 100%;
+    font-family: inherit;
     float: left;
 }
-#headerCenter{
+#h12{
     width: 30%;
     height: 100%;
+    font-family: inherit;
     float: left;
 }
+
+#h13{
+    width: 10%;
+    height: 100%;
+    font-family: inherit;
+    float: right;
+}
+#headerEmp1{
+    width: 65%;
+    height: 100%;
+    float: left;
+}
+
 #headerEmp2{
     width: 35%;
     height: inherit;
@@ -37,12 +191,14 @@ and open the template in the editor.
 }
 #body {
     width: 100%;
-    background-color: #FFF8DC;
+    margin: 0px auto;
+   
 }
+
 #footer {
     clear: both;
     width: 100%;
-    height: 30%;
+    height: 200px;
     background-color: rgb(44, 40, 40);
 }
 #beginfooter{
@@ -62,6 +218,16 @@ and open the template in the editor.
     width: 20px;
     height: 20px;
 }
+
+.contactIcon1 {
+    width: 120px;
+    height: 120px;
+   
+    border: none;
+    
+  
+   
+}
 html{
     height: 100%;
     margin: 0px;
@@ -69,6 +235,7 @@ html{
 body{
     margin: 0px;
     min-height: 100%;
+    background-position: center;
 }
 #header-menu{
     float: left;
@@ -85,3 +252,85 @@ body{
     color: black; 
     border: 2px solid #000066;
 }
+
+.DivMenu{
+    height: 50px;
+    float: left;
+}
+/*.ItemMenu{
+    display: block;
+    background-color: highlight;
+    color: black;
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 10px;
+    float: right;
+    display: inline-block;
+    
+   
+}*/
+
+.button-back-next1{
+
+  
+  color: black;
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  float: right;
+  cursor: pointer;
+  
+
+}
+.button-back-next1:hover {
+  background-color: greenyellow;
+  border: 2px solid;
+ 
+  color: black;
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  float: right;
+  cursor: pointer;
+}
+
+#headerHoten{
+    height: 100%;
+    width: 40%;
+    float: left;
+    font-family: inherit;
+    padding: 4px 0px 0px 0px;
+    text-align: right;
+        
+}
+
+#headerLuaCHon{
+    height: 100%;
+    width: 60%;
+    float: left;
+    font-family: inherit;
+    padding: 4px 0px 0px 0px;
+ 
+}
+
+#headerLH{
+    height: 100%;
+    width: 45%;
+    float: left;
+    padding: 10px;
+    
+}
+
+#headerLH1{
+    height: 100%;
+    width: 25%;
+    float: left;
+   
+}
+
+
+
+
+

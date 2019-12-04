@@ -2,55 +2,73 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Login</title>
+        <link rel="stylesheet" href="../../Views/css/loginstyle.css">
+        <link rel="stylesheet" href="../../Views/css/basestyle.css">
+        <link rel="stylesheet" href="../../Views/css/tintuc.css">
         <link href="../css/problem.css" rel="stylesheet" type="text/css">
-        <link href="../css/basestyle.css" rel="stylesheet" type="text/css">
+         <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
     </head>
     <body>
-        <div id="body" style="height: 700px;">
-        <div id="header">
-            <a href="../../Views/login.jsp"><div id="headerEmp1">
+        <div id="all1" style="height: 1500px;">
+            <div id="headerone">
+                <div  id="headerone11"></div>
+                <div id="headerone1">
+                    <img class="contactIcon" src="../../Views/resources/e-learning1-1.png" style="border-radius: 5px; height: 70px; width: 70px;  padding: 0px 0px 5px 5px;">
                 </div>
-            </a>
-            <div id="headerCenter"></div>
-            <div id="headerEmp2">
+                <div id="headerLH" style="margin: 0px">
+                    <div class="DivMenu">
+                        
+                        <a href="../../Views/TinTuc.jsp" class="button-back-next1">News</a>
+                        <a href="list_contest.jsp" class="button-back-next1">List Contest</a>
+                        <a href="../../Views/khoahoc.jsp" class="button-back-next1">Courses</a>
+                        <a href="../../Views/login.jsp" class="button-back-next1">Home Page</a>
+                    </div> 
+                </div>
+                <div id="headerLH1">
+                    
+                    <% if (session.getAttribute("username") != null) {%>
+                        <div id="headerHoten">
+                            <br>
+                            <span style="font-size: 15px">Hi, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
+                        </div>
+                        <div id="headerLuaCHon">
+                            <a href="../../Views/logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Đăng Xuất</a>
+                            <a href="../../Views/mainpage.jsp" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Trang Cá Nhân</a>
+                            
+                        </div>
+                    <% }  else { %>
+                       <a href="../../Views/index.jsp" class="button-back-next1" style="padding: 20px 10px 10px;">Đăng Nhập</a>
+                        <a href="../../Views/signUp.jsp" class="button-back-next1" style="padding: 20px;">Đăng Ký</a>
+                    
+                    <%  }%>
+                   
+                </div>
+                
+                <div id="headerone3">
+                    <img class="contactIcon" src="../../Views/resources/396311.svg" style="border-radius: 5px; height: 70px; width: 70px;  padding: 0px 0px 10px 10px;">
+                </div>
+            </div>
+            
+            <div id="Theader1">
+<!--                <h1 style="padding: 100px 0px 0px 450px;  margin: 0; font-size: 200px; font-family: inherit;"></h1>
+                <i style="padding-left: 300px; font-size: 50px; font-family: inherit;"></i>
+                -->
+            </div>       
+            
+            <div id="body" style="height: 1000px; background-color: whitesmoke; padding-left: 50px">
                 <br>
-                <br>
-                <% if (session.getAttribute("username") != null) {%>
-                <div id="header-menu">
-                    <br>
-                    <span style="font-size: 20px">Xin chào, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
-                        <br>
-                      
-                        <a href="../../Views/mainpage.jsp" style="color: brown">Trang cá nhân</a> |
-                        <a href="../../Views/logout" style="color: brown">Đăng xuất</a></span>
+                <div class="DivMenu" style="border: px solid green;" > 
+                    <a href="history_submission.jsp?username=<%=session.getAttribute("username")%>&maContest=<%=request.getParameter("maContest")%>" class="button-back-next1" style="text-decoration: none; color: black; padding: 15px; text"><b style="font-family: inherit; font-size: 20px">History submission</b></a>
+                    <a href="score_board.jsp?maContest=<%=request.getParameter("maContest")%>" style="text-decoration: none; color: black; padding: 15px" class="button-back-next1"><b style="font-family: inherit; font-size: 20px">Score Board</b></a>
+                    <a href="contest.jsp?maContest=<%=request.getParameter("maContest")%>" style="text-decoration: none; color: black; padding: 15px" class="button-back-next1"><b style="font-family: inherit; font-size: 20px">List Problem</b></a>
 
-                </div>
-                <% } else { %>
-                <form action="../../Views/login" method="POST" style="margin-left:37%; margin-top: 5px;">
-                    <label>Tài khoản</label>
-                    <input id="username" type="text" name="username" style="margin-left: 22px">
-                    <br>
-                    <br>
-                    <label>Mật khẩu</label>
-                    <input id="password" type="password" name="password" style="margin-left:25px">
-                    <br>
-                    <br>
-                    <input class="button-header" type="submit" value="Đăng nhập" style="margin-left: 45%" onclick="return checkSQL();"/>
-                    <br>
-                    <span style="font-size: 16px;margin-left: 20%;">Chưa có tài khoản? <a href="../../Views/signUp.jsp"> Đăng ký ngay</a></span>
-                </form>
-                <%  }%>
             </div>
-        </div>
-        <jsp:include page="div_header.jsp"></jsp:include>
-        <div class="DivMenu">
-                <a href="history_submission.jsp?username=<%=session.getAttribute("username")%>&maContest=<%=request.getParameter("maContest")%>" class="ItemMenu">History submission</a>
-                <a href="score_board.jsp?maContest=<%=request.getParameter("maContest")%>" class="ItemMenu">Score Board</a>
-                <a href="contest.jsp?maContest=<%=request.getParameter("maContest")%>" class="ItemMenu">List Problem</a>
-                <a href="list_contest.jsp" class="ItemMenu">List Contest</a>
-            </div>
-            <div class="list_contest">
+                    <hr style="width: 100%;">
+                    <br><br><br>
+                <div class="list_contest" style="height: 700px">
                 <h1 id="tenbaitap"></h1>
                 <pre id="debai"></pre>
                 <!--<div id="vidu"></div>-->
@@ -67,67 +85,97 @@ int main()
                 <input type="file" onclick="submitCode()"> chọn file </button> 
                 <button onclick="submitCode()"> submit </button>
             </div>
-        <jsp:include page="div_footer.jsp"></jsp:include>
-        </body>
-        <script>
-            function submitCode() {
-                var data = {
-                    Username: '<%=session.getAttribute("username")%>',
-                    MaBaiTap: '<%=request.getParameter("maBaiTap")%>',
-                    Code: document.getElementById("CodeEditorArea").value,
-                    ThoiDiemSubmit: new Date()
-                }
-                var x = JSON.stringify(data);
-//                alert(x);
-                fetch('../../submission', {
-                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                    //mode: 'cors', // no-cors, *cors, same-origin
-                    //cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                    //credentials: 'same-origin', // include, *same-origin, omit
-                    headers: {
-                        'Content-Type': 'application/json'
-//                                 'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    //redirect: 'follow', // manual, *follow, error
-                    //referrer: 'no-referrer', // no-referrer, *client
-                    body : x // body data type must match "Content-Type" header
-                }).then(
-                        function (response) {
-                            if (response.status !== 200) {
-                                console.log('lỗi: ' + response.status);
-                                return;
-                            }
-                            response.json().then(function (data) {
-                                if (data.ThongBao == 'submit thành công') {
-                                    window.location.href="history_submission.jsp?username="+'<%=session.getAttribute("username")%>'+"&maContest=<%=request.getParameter("maContest")%>";
-                                } else {
-                                    alert("submit ko thành công");
-                                }
-                            });
+            <br>
+
+            </div>   
+       
+
+
+            <div id="footer">
+                <div id="beginfooter"></div>
+                <div id="contact">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    Contact Us:
+                    <a href="https://www.facebook.com/hoa.rubi.39"><img class="contactIcon" src="https://cdn.pixabay.com/photo/2015/05/17/10/51/facebook-770688_960_720.png" style="border-radius: 5px"></a>
+                    <a href="https://github.com/LeHoa98ptit?fbclid=IwAR3yKK_JYQrhbvvpapQM8rI_p_C6puw-0bzyIC16GzTpKhT6viNtgK4Virs"><img class="contactIcon" src="https://cdn.iconscout.com/icon/free/png-512/github-160-734866.png"></a>
+                    <a href="https://www.instagram.com/hrb1198/?fbclid=IwAR38hbeUQjvdNfVtxxt2lTXoQdtOdwzE3Peq3VuDz3zow92MTgtxbb3ygUA"><img class="contactIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/599px-Instagram_icon.png"></a>
+
+                    <br>
+                    <a href="" style="color: white">Privacy & Security</a> | <a href="" style="color: white">Terms of Use</a> |
+                    <a href="" style="color: white">Trademarks</a> | <a href="" style="color: white">Legal</a>
+                </div>
+                <div style="width: 20%; height: 100%;float: left; text-align: end">
+                </div>
+            </div>
+
+            <script src="Views/script/detectSQLinjection.js"></script>
+    </body>
+    <script>
+                    function submitCode() {
+                        var data = {
+                            Username: '<%=session.getAttribute("username")%>',
+                            MaBaiTap: '<%=request.getParameter("maBaiTap")%>',
+                            Code: document.getElementById("CodeEditorArea").value,
+                            ThoiDiemSubmit: new Date()
                         }
-                )
+                        var x = JSON.stringify(data);
+                        //                alert(x);
+                        fetch('../../submission', {
+                            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                            //mode: 'cors', // no-cors, *cors, same-origin
+                            //cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                            //credentials: 'same-origin', // include, *same-origin, omit
+                            headers: {
+                                'Content-Type': 'application/json'
+                                        //                                 'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            //redirect: 'follow', // manual, *follow, error
+                            //referrer: 'no-referrer', // no-referrer, *client
+                            body: x // body data type must match "Content-Type" header
+                        }).then(
+                                function (response) {
+                                    if (response.status !== 200) {
+                                        console.log('lỗi: ' + response.status);
+                                        return;
+                                    }
+                                    response.json().then(function (data) {
+                                        if (data.ThongBao == 'submit thành công') {
+                                            window.location.href = "history_submission.jsp?username=" + '<%=session.getAttribute("username")%>' + "&maContest=<%=request.getParameter("maContest")%>";
+                                        } else {
+                                            alert("submit ko thành công");
+                                        }
+                                    });
+                                }
+                        )
+                                .catch(function (err) {
+                                    console.log('Fetch Error :-S', err);
+                                });
+                        ;
+                    }
+            </script>
+            <script>
+                fetch('../../problem?maBaiTap=<%=request.getParameter("maBaiTap")%>')
+                        .then(
+                                function (response) {
+                                    if (response.status !== 200) {
+                                        console.log('lỗi: ' + response.status);
+                                        return;
+                                    }
+                                    response.json().then(function (data) {
+                                        document.getElementById("tenbaitap").innerHTML = data.ten;
+                                        document.getElementById("debai").innerHTML = data.deBai;
+                                    });
+                                }
+                        )
                         .catch(function (err) {
                             console.log('Fetch Error :-S', err);
                         });
-                ;
-            }
-    </script>
-    <script>
-        fetch('../../problem?maBaiTap=<%=request.getParameter("maBaiTap")%>')
-                .then(
-                        function (response) {
-                            if (response.status !== 200) {
-                                console.log('lỗi: ' + response.status);
-                                return;
-                            }
-                            response.json().then(function (data) {
-                                document.getElementById("tenbaitap").innerHTML = data.ten;
-                                document.getElementById("debai").innerHTML = data.deBai;
-                            });
-                        }
-                )
-                .catch(function (err) {
-                    console.log('Fetch Error :-S', err);
-                });
-    </script>
+            </script>
 </html>
+
+
+

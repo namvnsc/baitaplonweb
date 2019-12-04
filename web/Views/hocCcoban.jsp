@@ -20,6 +20,7 @@
         <title>Học C cơ bản</title>
         <link rel="stylesheet" href="css/hocCcobanstyle.css">
         <link rel="stylesheet" href="css/basestyle.css">
+        <link href="css/loginstyle.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/editorstyle.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <% String ma = request.getParameter("ma");
@@ -49,42 +50,49 @@
     </head>
     <body>
         <div id="all">
-            <div id="header">
-                <a href="login.jsp"><div id="headerEmp1">
-                    </div>
-                </a>
-                <div id="headerCenter"></div>
-                <div id="headerEmp2">
-                    <br>
-                    <br>
+            <div id="headerone">
+                <div  id="headerone11"></div>
+                <div id="headerone1">
+                    <img class="contactIcon" src="resources/e-learning1-1.png" style="border-radius: 5px; height: 70px; width: 70px;  padding: 0px 0px 5px 5px;">
+                </div>
+                <div id="headerLH">
+                    <div class="DivMenu">
+                   
+                        <a href="TinTuc.jsp" class="button-back-next1">News</a>
+                        <a href="../contest/jsp/list_contest.jsp" class="button-back-next1">List Contest</a>
+                        <a href="khoahoc.jsp" class="button-back-next1">Courses</a>
+                        <a href="login.jsp" class="button-back-next1">Home Page</a>
+                    </div> 
+                </div>
+                <div id="headerLH1">
+                    
                     <% if (session.getAttribute("username") != null) {%>
-                    <div id="header-menu">
-                        <br>
-                        <span style="font-size: 20px">Xin chào, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
+                        <div id="headerHoten">
                             <br>
-                            <a href="mainpage.jsp" style="color: brown">Trang cá nhân</a> |
-                            <a href="logout" style="color: brown">Đăng xuất</a></span>
-
-                    </div>
-                    <% } else { %>
-                    <form action="login" method="POST" style="margin-left:37%; margin-top: 5px;">
-                        <label>Tài khoản</label>
-                        <input id="username" type="text" name="username" style="margin-left: 22px">
-                        <br>
-                        <br>
-                        <label>Mật khẩu</label>
-                        <input id="password" type="password" name="password" style="margin-left:25px">
-                        <br>
-                        <br>
-                        <input class="button-header" type="submit" value="Đăng nhập" style="margin-left: 45%" onclick="return checkSQL();"/>
-                        <br>
-                        <span style="font-size: 16px;margin-left: 20%;">Chưa có tài khoản?<a href="signUp.jsp">Đăng ký ngay</a></span>
-                    </form>
+                            <span style="font-size: 15px">Hi, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
+                        </div>
+                        <div id="headerLuaCHon">
+                            <a href="logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Đăng Xuất</a>
+                            <a href="mainpage.jsp" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Trang Cá Nhân</a>
+                            
+                        </div>
+                    <% }  else { %>
+                        
+                        <a href="index.jsp" class="button-back-next1" style="padding: 20px 10px 10px;">Đăng Nhập</a>
+                        <a href="signUp.jsp" class="button-back-next1" style="padding: 20px;">Đăng Ký</a>
+                    
                     <%  }%>
+                   
+                </div>
+                
+                <div id="headerone3">
+                    <img class="contactIcon" src="resources/396311.svg" style="border-radius: 5px; height: 70px; width: 70px;  padding: 0px 0px 10px 10px;">
                 </div>
             </div>
+                    <div id="headerC"></div>
             <div id="body"  style="height: 2000px;">
-                <div id="menu">
+                
+                <div id="menu11">
                     <div id="menu-name"><h2 style="text-align: center;">Học C cơ bản</h2></div>
                     <div id="list">
                         <ul>
@@ -94,7 +102,11 @@
                         </ul>
                     </div>
                 </div>
-                <div id="content">
+                <div id="menu12"></div>
+               
+                <div id="content11">
+                    <br>
+                    <br>
                     <div class="back-next">
                         <div style="width: 17%;float: left"><a href="<%= "hocCcoban.jsp?ma=" + back%>"><button class="button-back-next">Bài trước</button></a></div>
                         <div style="width: 66%;float: left;"><h2 style="margin-left: 10%"><%= "Lập trình C cơ bản - " + baiHoc.getTen()%></h2></div>
@@ -136,9 +148,9 @@ int main()
                         <div style="width: 66%;float: left;"><h2 style="margin-left: 27%"><%= "C cơ bản - " + baiHoc.getTen()%></h2></div>
                         <div style="width: 17%;float: left"><a href="<%= "hocCcoban.jsp?ma=" + next%>"><button class="button-back-next" style="float: right">Bài tiếp theo</button></a></div>
                     </div>
-                    <div id="ads-hoz"></div>
+        
                 </div>
-                <div id="ads-ver"></div>
+              
             </div>
             <div id="footer">
                 <div id="beginfooter"></div>

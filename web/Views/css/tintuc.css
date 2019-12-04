@@ -1,0 +1,101 @@
+#Theader{
+    width: 100%;
+    height: 600px;
+    background-image: url('../resources/ten.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+    margin: 0px auto;
+    color: white;
+}
+
+#Theader1{
+    width: 100%;
+    height: 600px;
+    background-image: url('../resources/contest.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+    margin: 0px auto;
+    color: white;
+}
+
+#Theader2{
+    width: 100%;
+    height: 600px;
+    background-image: url('../resources/win.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+    margin: 0px auto;
+    color: white;
+}
+
+#Theader3{
+    width: 100%;
+    height: 600px;
+    background-image: url('https://media1.thehungryjpeg.com/thumbs2/800_3492963_e8343da2bf730d910e340341d80e52708ea43fff_try-hard-svg-cut-file.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    color: black;
+    margin: 0px auto;
+    color: white;
+}
+
+#conten{
+    width: 100%;
+    height: 300px;
+    font-family: inherit;
+}
+
+#conten1{
+    width: 10%;
+    height: 100%;
+    float: left;
+}
+
+.conten2{
+    width: 80%;
+    height: 100%;
+    float: left;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    float: left;
+    cursor: pointer;
+
+
+}
+.conten2:hover{
+    width: 80%;
+    height: 100%;
+    float: left;
+    background-color: windowframe;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    float: left;
+    cursor: pointer;
+
+}
+
+#conten3{
+    width: 10%;
+    height: 100%;
+    float: right;
+}
+
+#conten21{
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+
+#conten22{
+    width: 80%;
+    height: 100%;
+    float: right;
+}
+

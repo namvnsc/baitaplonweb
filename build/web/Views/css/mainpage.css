@@ -1,8 +1,35 @@
-#profile{
+.btn-follow{
+    width: 100%;
+    padding: 15px;
+    border: 0px;
+}
+
+.btn-follow{
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ccd0d5;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.btn-follow:hover{
+    background-color: #CAFF70;
+}
+
+.btn-follow:active{
+    background-color: #E1E1E1;
+}#profile{
     width: 25%;
-    height: 100%;
+    height: 700px;
     float: left;
-    background-color: floralwhite;
+    background-color: buttonface;
+    border: 2px solid;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    
 }
 #khoahoc{
     width: 100%;
@@ -13,7 +40,7 @@
     height: 40%;
 }
 #profile-content{
-    width: 75%;
+    width: 70%;
     height: 100%;
     float: left;
 }
@@ -42,6 +69,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .box{
     flex-basis:25%;
     padding:20px!important;
@@ -85,3 +113,4 @@ ul{
 .title{
     font-weight: bolder;
 }
+

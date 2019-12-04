@@ -7,16 +7,37 @@ and open the template in the editor.
     Created on : Nov 20, 2019, 7:33:16 PM
     Author     : ABC
 */
-#menu{
+#menu11{
     width: 20%;
     height: 100%;
-    background-color: aliceblue;
+    background-color: whitesmoke;
     float: left;
 }
-#content{
+
+#headerC{
+    height: 500px;
+    width: 100%;
+    background-size: 100%;
+    background-image: url('../resources/c.png');
+}
+
+#headerGT{
+    height: 500px;
+    width: 100%;
+    background-size: 100%;
+    background-image: url('../resources/gt.jpg');
+}
+#menu12{
+    width: 2%;
+    height: 100%;
+    background-color: white;
+    float: left;
+}
+#content11{
     width: 60%;
     height: 100%;
     float: left;
+
 }
 .button-back-next{
   background-color: #CDC8B1;

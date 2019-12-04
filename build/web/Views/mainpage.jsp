@@ -16,40 +16,48 @@
     </head>
     <body>
         <div id="all">
-            <div id="header">
-                <a href="login.jsp"><div id="headerEmp1">
-                    </div>
-                </a>
-                <div id="headerCenter"></div>
-                <div id="headerEmp2">
-                    <br>
-                    <br>
+            <div id="headerone">
+                <div  id="headerone11"></div>
+                <div id="headerone1">
+                    <img class="contactIcon" src="resources/e-learning1-1.png" style="border-radius: 5px; height: 70px; width: 70px;  padding: 0px 0px 5px 5px;">
+                </div>
+                <div id="headerLH">
+                    <div class="DivMenu">
+                   
+                        <a href="TinTuc.jsp" class="button-back-next1">News</a>
+                        <a href="../contest/jsp/list_contest.jsp" class="button-back-next1">List Contest</a>
+                        <a href="khoahoc.jsp" class="button-back-next1">Courses</a>
+                        <a href="login.jsp" class="button-back-next1">Home Page</a>
+                    </div> 
+                </div>
+                <div id="headerLH1">
+                    
                     <% if (session.getAttribute("username") != null) {%>
-                    <div id="header-menu">
-                        <br>
-                        <span style="font-size: 20px">Xin chào, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
+                        <div id="headerHoten">
                             <br>
-                            <a href="mainpage.jsp" style="color: brown">Trang cá nhân</a> |
-                            <a href="logout" style="color: brown">Đăng xuất</a></span>
-
-                    </div>
-                    <% } else { %>
-                    <form action="login" method="POST" style="margin-left:37%; margin-top: 5px;">
-                        <label>Tài khoản</label>
-                        <input id="username" type="text" name="username" style="margin-left: 22px">
-                        <br>
-                        <br>
-                        <label>Mật khẩu</label>
-                        <input id="password" type="password" name="password" style="margin-left:25px">
-                        <br>
-                        <br>
-                        <input class="button-header" type="submit" value="Đăng nhập" style="margin-left: 45%" onclick="return checkSQL();"/>
-                        <br>
-                        <span style="font-size: 16px;margin-left: 20%;">Chưa có tài khoản?<a href="signUp.jsp">Đăng ký ngay</a></span>
-                    </form>
+                            <span style="font-size: 15px">Hi, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
+                        </div>
+                        <div id="headerLuaCHon">
+                            <a href="logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Đăng Xuất</a>
+                            <a href="mainpage.jsp" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Trang Cá Nhân</a>
+                            
+                        </div>
+                    <% }  else { %>
+                        
+                        <a href="index.jsp" class="button-back-next1" style="padding: 20px 10px 10px;">Đăng Nhập</a>
+                        <a href="signUp.jsp" class="button-back-next1" style="padding: 20px;">Đăng Ký</a>
+                    
                     <%  }%>
+                   
+                </div>
+                
+                <div id="headerone3">
+                    <img class="contactIcon" src="resources/396311.svg" style="border-radius: 5px; height: 70px; width: 70px;  padding: 0px 0px 10px 10px;">
                 </div>
             </div>
+            <br>
+            <br>
+            <br>
             <div id="profile">
                 <% TaiKhoanDAOImpl taiKhoanDAOImpl = new TaiKhoanDAOImpl();
                     KhoaHocDAO khoaHocDAO = new KhoaHocDAO();
@@ -59,16 +67,18 @@
                     if (a != null) {%>
                 <br>
                 <br>
-                <div class="text"><h2>Thông tin học viên</h2></div>
+                <div class="text"><h2 style="font-family: inherit; font-size: 30px">Thông tin học viên</h2></div>
                 <div class="box">
                     <div>
                         <img class="img-container1" id="avt" src="resources/avt_test.jpg" style="width: 200px; height: 200px;">
                     </div>
+       
                     <div>
                         <p class="text-justify">
                             <br><span class="title"></span>
                             <%= a.getUsername()%>
-                            <br><span class="title">Họ và tên:</span>
+                            <br>
+                            <br><span class="title" style="text-align: center">Họ và tên:</span>
                             <%= a.getHoten()%>
                             <br><span class="title">Email:</span>
                             <%= a.getEmail()%>
@@ -76,7 +86,9 @@
                             <%= a.getSdt()%>
                         </p>
                     </div>
-                </div>
+                        <br>
+                        <a href=""><button class="btn-follow" style="size: 100px">Edit Infor</button></a>
+                    </div>
                 <% }
                 %>
             </div>
@@ -84,6 +96,7 @@
                 <hr>
                 <div id="khoahoc">
                     <ul><li><h2>Các khóa học đang theo</h2></li></ul>
+                    
                             <% for (KhoaHoc kh : list) {%>
                     <div id="khoa">
                         <h4 class="titleCourse"><%= kh.getTen()%></h4>

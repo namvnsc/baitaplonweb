@@ -47,7 +47,7 @@
     line-height: 1.2;
 }
 .text-justify{
-    font-size: 15px;
+    font-size: 25px;
     text-align: justify!important;
     margin-top: 0;
     margin-bottom: 1rem;
@@ -65,5 +65,258 @@
 h4{
     text-decoration: underline;
 }
+
+#FirntContent{
+    height: 500px;
+    width: 100%;
+    font-family: monospace;
+    font-size: 14px;
+
+}
+
+.onecontent{
+    height: 30%;
+
+}
+
+
+.secoundcontent{
+    height: 30%;
+
+}
+
+
+
+.thirdcontent{
+    height: 30%;
+
+}
+
+.fourcontent{
+    height: 10%;
+
+}
+
+#oneleft{
+    width: 5%;
+    float: left;
+    height: 100%;
+
+}
+#onecenter{
+    width: 15%;
+    height: 100%;
+    float: left;
+
+}
+
+#oneright{
+    width: 80%;
+    height: 100%;
+    float: left;
+
+}
+
+#oneleft1{
+    width: 15%;
+    float: left;
+    height: 100%;
+
+}
+#onecenter1{
+    width: 15%;
+    height: 100%;
+    float: left;
+
+}
+
+#oneright1{
+    width: 70%;
+    height: 100%;
+    float: left;
+}
+
+#oneleft21{
+    width: 15%;
+    float: left;
+    height: 100%;
+
+
+}
+#onecenter22{
+    width: 70%;
+    height: 100%;
+    float: left;
+}
+
+.center1{
+    width: 28%;
+    height: 400px;
+    float: left;
+    background-color: white;
+    border: 2px solid;
+
+    color: black;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+
+    cursor: pointer;
+
+}
+
+.center1:hover{
+    width: 28%;
+    height: 400px;
+    float: left;
+    background-color: aquamarine;
+    border: 2px solid;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+
+}
+
+#center2{
+    width: 6%;
+    height: 400px;
+    float: left;
+}
+
+.center3{
+    width: 28%;
+    height: 400px;
+    float: left;
+    background-color: white;
+    border: 2px solid;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.center3:hover{
+    width: 28%;
+    height: 400px;
+    float: left;
+    background-color: aquamarine;
+    border: 2px solid;
+    color: black;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+#center4{
+    width: 6%;
+    height: 400px;
+    float: left;
+}
+.center5{
+    width: 28%;
+    height: 400px;
+    float: left;
+    background-color: white;
+    border: 2px solid;
+    color: black;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+.center5:hover{
+    width: 28%;
+    height: 400px;
+    float: left;
+    background-color: aquamarine;
+    border: 2px solid;
+    color: black;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#oneright23{
+    width: 15%;
+    height: 100%;
+    float: left;
+}
+
+#Secondcontent{
+    width: 100%;
+    height: 550px;
+
+}
+
+#twoleft{
+    width: 40%;
+    height: 100%;
+
+    float: left;
+}
+
+#twocenter{
+    width: 40%;
+    height: 100%;
+    float: left;
+}
+
+#tworight{
+    width: 20%;
+    height: 100%;
+    float: right;
+}
+
+#twocenter1{
+    width: 100%;
+    height: 30%;
+    float: left;
+    font-size: 25px;
+
+}
+
+#twocenter2{
+    width: 100%;
+    height: 70%;
+    float: right;
+    font-size: 25px;
+
+
+}
+
+#thirdConten{
+
+}
+
+.img-container2{
+    margin: 0 auto;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#center21{
+    width: 100%;
+    height: 80%
+}
+
+#center22{
+    width: 100%;
+    height: 20%;
+}
+
+
 
 
