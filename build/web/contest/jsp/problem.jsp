@@ -69,8 +69,8 @@
                     <hr style="width: 100%;">
                     <br><br><br>
                 <div class="list_contest" style="height: 700px">
-                <h1 id="tenbaitap"></h1>
-                <pre id="debai"></pre>
+                <h1 id="tenbaitap" style="font-family: inherit"></h1>
+                <pre id="debai" style="font-family: inherit"></pre>
                 <!--<div id="vidu"></div>-->
                 <h2>Online Code C Editor</h2>
                 <textarea id="CodeEditorArea" id="input">
