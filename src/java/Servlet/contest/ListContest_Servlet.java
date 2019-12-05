@@ -12,10 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Admin
- */
 public class ListContest_Servlet extends HttpServlet {
 
     @Override
@@ -29,13 +25,6 @@ public class ListContest_Servlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.print(str);
         out.flush();
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.getWriter().write("null");
-        //processRequest(request, response);
     }
 
 }

@@ -1,63 +1,29 @@
-/*
- */
+
 package Servlet.contest;
 
 import DAO.DAO_Contest;
-import DAO.DAO_Problem;
 import DAO.DAO_Register;
+import Entities.contest.BaiTap;
 import Entities.contest.Contest;
 import Entities.contest.Problem;
 import Entities.contest.ResultBoard;
 import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Admin
- */
 public class Contest_Servlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Contest_Servlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Contest_Servlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -73,7 +39,6 @@ public class Contest_Servlet extends HttpServlet {
             if (ct.getTrangThai().equals("Đang diễn ra")) {
                 if ((new DAO_Register()).checkRegister(username, ct.getMa())) {
                     ResultBoard rs = (new DTO.DTO_ResultBoard()).get(username, ma);
-//                    ArrayList<Problem> list = (new DAO_Problem()).getAll(ma);
                     String str = (new Gson()).toJson(rs);
                     PrintWriter out = response.getWriter();
                     out.print(str);
@@ -83,7 +48,6 @@ public class Contest_Servlet extends HttpServlet {
                 }
             } else {
                 ResultBoard rs = (new DTO.DTO_ResultBoard()).get(username, ma);
-//                    ArrayList<Problem> list = (new DAO_Problem()).getAll(ma);
                 String str = (new Gson()).toJson(rs);
                 PrintWriter out = response.getWriter();
                 out.print(str);
@@ -92,28 +56,61 @@ public class Contest_Servlet extends HttpServlet {
         }
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("application/jsons");
+        response.setCharacterEncoding("UTF-8");
+        
+        String ma, ten, thoiDiemBatDau, thoiGian;
+        ArrayList<Problem> listPro = new ArrayList<>();
+        Contest ct = new Contest();
+        JsonReader reader = new JsonReader(request.getReader());
+        reader.beginObject();
+        reader.nextName();
+        ma = reader.nextString();reader.nextName();
+        ten = reader.nextString();reader.nextName();
+        thoiDiemBatDau = reader.nextString();reader.nextName();
+        thoiGian = reader.nextString();reader.nextName();
+        ct.setMa(ma);
+        ct.setTen(ten);
+        Date t = null;
+        try {
+            t = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(thoiDiemBatDau);
+            ct.setThoiDiemBatDau(t.getTime());
+        } catch (ParseException ex) {
+            Logger.getLogger(Submission_Servlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ct.setThoiGian(Float.parseFloat(thoiGian));
+        reader.beginArray();
+        int stt = 1;
+        while(reader.hasNext()){
+            Problem pro = new Problem();
+            BaiTap bt = new BaiTap();
+            reader.beginObject();
+            reader.nextName();
+            bt.setMa(reader.nextString().split("-")[0]);
+            pro.setBaiTap(bt);
+            reader.nextName();
+            pro.setDiem(Integer.parseInt(reader.nextString()));
+            pro.setSoThuTu(stt++);
+            listPro.add(pro);
+            reader.endObject();
+        }
+        ct.setListProblem(listPro);
+        reader.endArray();
+        reader.endObject();
+        reader.close();
+        if((new DAO_Contest()).save(ct)){
+            response.getWriter().print("{\"ThongBao\": \"submit thành công\"}"); 
+        }else{
+            response.getWriter().print("{\"ThongBao\": \"submit không thành công\"}"); 
+        }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

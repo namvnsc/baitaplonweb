@@ -36,7 +36,8 @@ import javax.servlet.http.HttpSession;
 public class tmp {
 
     public static void main(String[] args) {
-        ScoreBoard sb = (new DTO_ScoreBoard()).get("MD");
+        (new TaiKhoanDAOImpl()).checkAccount(new TaiKhoan("a", "*"));
+//        ScoreBoard sb = (new DTO_ScoreBoard()).get("MD");
 //        if(!(new DAO_Register()).checkRegister("a", "SPRING")){
 //            (new DAO_Register()).save("a", "SPRING");
 //        }

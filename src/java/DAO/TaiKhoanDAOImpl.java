@@ -65,7 +65,7 @@ public class TaiKhoanDAOImpl implements TaiKhoanDAO{
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                TaiKhoan a=new TaiKhoan(username, rs.getString("password"), rs.getString("hoten"), rs.getString("email"), rs.getString("sodienthoai"),rs.getString("avatar"));
+                TaiKhoan a=new TaiKhoan(username, rs.getString("password"), rs.getString("hoten"), rs.getString("email"), rs.getString("sodienthoai"),rs.getString("avatar"), rs.getString("role"));
                 return a;
             } else {
                 return null;

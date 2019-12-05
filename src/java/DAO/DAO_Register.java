@@ -23,7 +23,7 @@ public class DAO_Register implements BaseDAO{
     
     public ArrayList<Register> getAll(String maContest){
         ArrayList<Register> ds = new ArrayList<>();
-        String sql = "select * from Register where Ma_Contest=?";
+        String sql = "select * from register where Ma_Contest=?";
         try{
             PreparedStatement pre = con.prepareStatement(sql);
             pre.setString(1, maContest);
@@ -31,7 +31,6 @@ public class DAO_Register implements BaseDAO{
             while(rs.next()){
                 Register c = new Register();
                 c.setTaiKhoan(new TaiKhoan(rs.getString("Username"), null));
-//                c.setContest((new DAO_Contest()));
                 c.setId(rs.getInt("ID"));
                 ds.add(c);
             }
@@ -41,30 +40,8 @@ public class DAO_Register implements BaseDAO{
         return ds;
     }
     
-//    public Contest getByCode(String ma){
-//        Contest c = new Contest();
-//        String sql = "select * from contest where Ma=?";
-//        try{
-//            PreparedStatement pre = con.prepareStatement(sql);
-//            pre.setString(1, ma);
-//            ResultSet rs = pre.executeQuery();
-//            while(rs.next()){
-//                c.setMa(rs.getString("Ma"));
-//                c.setTen(rs.getString("Ten"));
-//                c.setThoiDiemBatDau(rs.getTime("Thoi_Diem_Bat_Dau").getTime() 
-//                        + rs.getDate("Thoi_Diem_Bat_Dau").getTime()
-//                        + 7*60*60*1000);
-//                c.setThoiGian(rs.getFloat("Thoi_Gian"));
-//                c.setTrangThai();
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(DAO_Contest.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return c;
-//    }
-    
     public boolean checkRegister(String us, String cc){
-        String sql = "select * from Register where Username=? && Ma_Contest=?";
+        String sql = "select * from register where Username=? and Ma_Contest=?";
         try{
             PreparedStatement pre = con.prepareStatement(sql);
             pre.setString(1, us);
@@ -80,12 +57,11 @@ public class DAO_Register implements BaseDAO{
     }
     
     public boolean save(String us, String ma){
-        String sql = "insert into Register(Username, Ma_Contest) values(?, ?)";
+        String sql = "insert into register(Username, Ma_Contest) values(?, ?)";
         try{
             PreparedStatement pre = con.prepareStatement(sql);
             pre.setString(1, us);
             pre.setString(2, ma);
-//            pre.setLong(3, ms);
             pre.execute();
             return true;
         } catch (SQLException ex) {

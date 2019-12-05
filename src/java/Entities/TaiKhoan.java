@@ -16,7 +16,7 @@ public class TaiKhoan {
     private String email;
     private String sdt;
     private String avatar;
-
+    private String role;
     public String getAvatar() {
         return avatar;
     }
@@ -25,13 +25,14 @@ public class TaiKhoan {
         this.avatar = avatar;
     }
 
-    public TaiKhoan(String username, String password, String hoten, String email, String sdt, String avatar) {
+    public TaiKhoan(String username, String password, String hoten, String email, String sdt, String avatar, String role) {
         this.username = username;
         this.password = password;
         this.hoten = hoten;
         this.email = email;
         this.sdt = sdt;
         this.avatar = avatar;
+        this.role = role;
     }
 
     public TaiKhoan(String username, String password, String hoten, String email, String sdt) {
@@ -86,4 +87,13 @@ public class TaiKhoan {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+    
 }

@@ -3,8 +3,6 @@ package DAO;
 
 import DAO.BaseDAO;
 import Entities.TaiKhoan;
-import Entities.contest.BaiTap;
-import Entities.contest.Contest;
 import Entities.contest.Submission;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,10 +24,10 @@ public class DAO_Submission implements BaseDAO {
 
     public ArrayList<Submission> getAll(String maContest, String username) {
         ArrayList<Submission> ds = new ArrayList<>();
-        String sql = "select Submission.* from Submission, Contest, Problem, Bai_Tap "
-                + "  where Contest.Ma=? and Submission.Username=? and "
-                + "  Problem.Ma_Contest=Contest.Ma and Problem.Ma_Bai_Tap=Bai_Tap.Ma and "
-                + "  Submission.Ma_Bai_Tap=Bai_Tap.Ma";
+        String sql = "select submission.* from submission, contest, problem, bai_tap "
+                + "  where contest.Ma=? and submission.Username=? and "
+                + "  problem.Ma_Contest=contest.Ma and problem.Ma_Bai_Tap=bai_tap.Ma and "
+                + "  submission.Ma_Bai_Tap=bai_tap.Ma";
         try {
             PreparedStatement pre = con.prepareStatement(sql);
             pre.setString(1, maContest);
@@ -57,9 +55,9 @@ public class DAO_Submission implements BaseDAO {
 
     public ArrayList<Submission> getAllForBaiTap(String maBaiTap, String username) {
         ArrayList<Submission> ds = new ArrayList<>();
-        String sql = " select Submission.* from Submission, Bai_Tap "
-                + "  where Submission.Username=? and "
-                + "  Submission.Ma_Bai_Tap=?";
+        String sql = " select submission.* from submission, bai_tap "
+                + "  where submission.Username=? and "
+                + "  submission.Ma_Bai_Tap=?";
         try {
             PreparedStatement pre = con.prepareStatement(sql);
             pre.setString(1, username);
@@ -87,7 +85,7 @@ public class DAO_Submission implements BaseDAO {
     
     public Submission getById(int id) {
         Submission s = new Submission();
-        String sql = "select Submission.* from Submission where ID=?";
+        String sql = "select submission.* from submission where ID=?";
         try {
             PreparedStatement pre = con.prepareStatement(sql);
             pre.setInt(1, id);
@@ -110,7 +108,7 @@ public class DAO_Submission implements BaseDAO {
     }
 
     public int save(Submission sub) {
-        String sql = "insert into Submission(Username, Ma_Bai_Tap, Code, Trang_Thai, Thoi_Diem_Submit) "
+        String sql = "insert into submission(Username, Ma_Bai_Tap, Code, Trang_Thai, Thoi_Diem_Submit) "
                 + "values(?, ?, ?, ?, ?)";
         java.sql.Date date = new java.sql.Date(sub.getThoiDiemSubmit().getTime());
         System.out.println(date);
@@ -133,7 +131,7 @@ public class DAO_Submission implements BaseDAO {
     }
 
     public int getID(String un, String ma) {
-        String sql = "select max(ID) as idMax from Submission where Username=? and Ma_Bai_Tap=?";
+        String sql = "select max(ID) as idMax from submission where Username=? and Ma_Bai_Tap=?";
         try {
             PreparedStatement pre = con.prepareStatement(sql);
             pre.setString(1, un);
@@ -149,7 +147,7 @@ public class DAO_Submission implements BaseDAO {
     }
 
     public void update(int id, String trangThai) {
-        String sql = "update Submission set Trang_Thai = ? where ID = ?";
+        String sql = "update submission set Trang_Thai = ? where ID = ?";
         try {
             PreparedStatement pre = con.prepareStatement(sql);
             pre.setInt(2, id);

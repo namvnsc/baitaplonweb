@@ -4,11 +4,12 @@ package DAO;
 import DAO.BaseDAO;
 import java.util.ArrayList;
 import Entities.contest.Contest;
+import Entities.contest.Problem;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -64,6 +65,30 @@ public class DAO_Contest implements BaseDAO{
             Logger.getLogger(DAO_Contest.class.getName()).log(Level.SEVERE, null, ex);
         }
         return c;
+    }
+    
+    public boolean save(Contest ct){
+        
+        String sql = "insert into contest(Ma, Ten, Thoi_Diem_Bat_Dau, Thoi_Gian) values(?, ?, ?, ?)";
+        try {
+            PreparedStatement pre = con.prepareStatement(sql);
+            pre.setString(1, ct.getMa());
+            pre.setString(2, ct.getTen());
+            pre.setTimestamp(3, new Timestamp(ct.getThoiDiemBatDau()));
+            pre.setFloat(4, ct.getThoiGian());
+            boolean rs = pre.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO_Submission.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        boolean ok = true;
+        for(Problem pro: ct.getListProblem()){
+            if(!(new DAO_Problem()).save(pro, ct.getMa())){
+//                sql = "Rollback"
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override

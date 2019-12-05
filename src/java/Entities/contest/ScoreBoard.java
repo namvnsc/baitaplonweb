@@ -32,6 +32,7 @@ public class ScoreBoard {
     }
     
     public void setRank(){
+        if(listRsB.size()==0) return;
         sx();
         int rank = 1;
         listRsB.get(0).setRank(rank);

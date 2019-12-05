@@ -95,8 +95,12 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("email", a.getEmail());
                 session.setAttribute("sdt", a.getSdt());
                 session.setAttribute("hoten", a.getHoten());
-                
-                response.sendRedirect(request.getContextPath()+"/Views/login.jsp");
+                session.setAttribute("role", a.getRole());
+                if(a.getRole().equals("admin")){
+                    response.sendRedirect(request.getContextPath()+"/contest/jsp/admin.jsp");
+                }else{
+                    response.sendRedirect(request.getContextPath()+"/Views/login.jsp");
+                }
             } else {
                 response.sendRedirect("login.jsp?access=false");
             }

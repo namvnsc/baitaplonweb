@@ -20,7 +20,7 @@ public class DAO_Problem implements BaseDAO{
     }
     public ArrayList<Problem> getAll(String maContest){
         ArrayList<Problem> ds = new ArrayList<>();
-        String sql = "select * from Problem where Ma_Contest=?";
+        String sql = "select * from problem where Ma_Contest=?";
         try{
             PreparedStatement pre = con.prepareStatement(sql);
             pre.setString(1, maContest);
@@ -41,7 +41,7 @@ public class DAO_Problem implements BaseDAO{
 
     public Problem getBySoThuThu(String maContest, int soThuTu){
         Problem p = new Problem();
-        String sql = "select * from Problem where Ma_Contest=? and So_Thu_Tu=?";
+        String sql = "select * from problem where Ma_Contest=? and So_Thu_Tu=?";
         try{
             PreparedStatement pre = con.prepareStatement(sql);
             pre.setString(1, maContest);
@@ -56,6 +56,22 @@ public class DAO_Problem implements BaseDAO{
             Logger.getLogger(DAO_Problem.class.getName()).log(Level.SEVERE, null, ex);
         }
         return p;
+    }
+    
+    public boolean save(Problem p, String mact){
+        String sql = "insert into problem(Ma_Contest, So_Thu_Tu, Ma_Bai_Tap, Diem) values(?, ?, ?, ?)";
+        try {
+            PreparedStatement pre = con.prepareStatement(sql);
+            pre.setString(1, mact);
+            pre.setInt(2, p.getSoThuTu());
+            pre.setString(3, p.getBaiTap().getMa());
+            pre.setInt(4, p.getDiem());
+            boolean rs = pre.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO_Submission.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        return true;
     }
     
     @Override
