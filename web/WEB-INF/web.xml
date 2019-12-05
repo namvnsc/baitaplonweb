@@ -32,6 +32,10 @@
         <servlet-name>ScoreBoard_Servlet</servlet-name>
         <servlet-class>Servlet.contest.ScoreBoard_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BaiTap_Servlet</servlet-name>
+        <servlet-class>Servlet.contest.BaiTap_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Views/login</url-pattern>
@@ -59,6 +63,10 @@
     <servlet-mapping>
         <servlet-name>ScoreBoard_Servlet</servlet-name>
         <url-pattern>/scoreboard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BaiTap_Servlet</servlet-name>
+        <url-pattern>/baitap</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
