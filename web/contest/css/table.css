@@ -1,0 +1,57 @@
+table{
+    border: 3px solid black;
+    width: 100%;
+    font-weight: bold;
+}
+
+thead, th{
+    height: 50px;
+    /*color: brown;*/
+    border: 2px solid black;
+    border-collapse: collapse;
+    background-color: burlywood;
+}
+
+tr, td{
+    text-align: center;
+    height: 70px;
+    border: 1px solid black;
+    padding-left: 10px;
+    border-radius: 7px;
+    background-color: bisque;
+}
+
+.green{
+    color: lawngreen;
+}
+
+.cyan{
+    color: cyan;
+}
+
+.pink{
+    color: pink;
+}
+
+.red{
+    color: red;
+}
+
+._w10{
+    width: 10%;
+}
+._w15{
+    width: 15%;
+}
+._w20{
+    width: 20%;
+}
+._w25{
+    width: 25%;
+}
+._w30{
+    width: 30%;
+}
+._w40{
+    width: 40%;
+}

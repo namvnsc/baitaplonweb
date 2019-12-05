@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../../Views/css/basestyle.css">
         <link rel="stylesheet" href="../../Views/css/tintuc.css">
         <link href="../css/problem.css" rel="stylesheet" type="text/css">
-         <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
+        <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
     </head>
     <body>
         <div id="all1" style="height: 1500px;">
@@ -69,22 +69,21 @@
                     <hr style="width: 100%;">
                     <br><br><br>
                 <div class="list_contest" style="height: 700px">
-                <h1 id="tenbaitap" style="font-family: inherit"></h1>
-                <pre id="debai" style="font-family: inherit"></pre>
-                <!--<div id="vidu"></div>-->
-                <h2>Online Code C Editor</h2>
-                <textarea id="CodeEditorArea" id="input">
+                    <h1 id="tenbaitap" style="font-family: inherit; text-align: center; "></h1>
+                    <pre id="debai" style="font-family: inherit; font-size: 20px; border-radius: 15px;  background-color: #CDC8B1; padding: 10px"></pre>
+                    <h3>Online Code C Editor</h3>
+                    <textarea id="CodeEditorArea" id="input">
 #include <stdio.h>
 int main()
 {
    //do your code here
    return 0;
 }
-                </textarea>
-                <br>
-                <input type="file" onclick="submitCode()"> chọn file </button> 
-                <button onclick="submitCode()"> submit </button>
-            </div>
+                    </textarea>
+                    <br>
+                    <input type="file" onclick="submitCode()"> chọn file </button> 
+                    <button onclick="submitCode()"> submit </button>
+                </div>
             <br>
 
             </div>   

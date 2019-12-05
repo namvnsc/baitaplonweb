@@ -4,12 +4,12 @@
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
+        <title>List contest</title>
         <link rel="stylesheet" href="../../Views/css/loginstyle.css">
         <link rel="stylesheet" href="../../Views/css/basestyle.css">
-        <link rel="stylesheet" href="../../Views/css/tintuc.css">
-        <link href="../css/problem.css" rel="stylesheet" type="text/css">
-         <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
+        <link rel="stylesheet" href="../../Views/css/tintuc.css">">
+        <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
+        <link rel="stylesheet" href="../css/table.css" type="text/css">
     </head>
     <body>
         <div id="all1" style="height: 1500px;">
@@ -103,20 +103,23 @@
                             }
                             response.json().then(function (data) {
                                 myObj = data;
-
-                                var txt = "<tr>" +
-                                        "<td > NAME </td>" +
-                                        "<td >START</td>" +
-                                        "<td >LENGTH</td>" +
-                                        "<td >STATE</td>" +
-                                        "<td >ENTER</td>" +
-                                        "</tr>";
+                                var txt = "<thead><tr>" +
+                                        "<th class='_w30'> NAME </th>" +
+                                        "<th class='_w30'>START</th>" +
+                                        "<th class='_w10'>LENGTH</th>" +
+                                        "<th class='_w15'>STATE</th>" +
+                                        "<th class='_w15'>ENTER</th>" +
+                                        "</tr></thead>";
                                 for (x in myObj) {
                                     txt += "<tr>" +
                                             "<td>" + myObj[x].ten + "</td>" +
                                             "<td>" + new Date(myObj[x].thoiDiemBatDau) + "</td>" +
-                                            "<td>" + myObj[x].thoiGian + "</td>" +
-                                            "<td>" + myObj[x].trangThai + "</td>";
+                                            "<td>" + myObj[x].thoiGian + " hours"+ "</td>";
+                                    if(myObj[x].trangThai=="Đang diễn ra"){
+                                        txt += "<td class='green'>" + myObj[x].trangThai + "</td>";
+                                    }else{
+                                        txt += "<td>" + myObj[x].trangThai + "</td>";
+                                    }
                                     if (myObj[x].trangThai == "Đã kết thúc" || myObj[x].trangThai == "Đang diễn ra") {
                                         txt += "<td><a href=\"contest.jsp?maContest=" + myObj[x].ma + "\"> tham gia </a></td>" +
                                                 "</tr>";

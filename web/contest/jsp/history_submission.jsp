@@ -8,8 +8,7 @@
         <link rel="stylesheet" href="../../Views/css/loginstyle.css">
         <link rel="stylesheet" href="../../Views/css/basestyle.css">
         <link rel="stylesheet" href="../../Views/css/tintuc.css">
-        <link href="../css/problem.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
+        <link rel="stylesheet" href="../css/table.css" type="text/css">
     </head>
     <body>
         <div id="all1" style="height: 1500px;">
@@ -74,10 +73,10 @@
                 <hr style="width: 100%;">
                 <br>
                 <br>
-                <div class="list_contest" style="height: 700px">
-                <table id="table_history_submission">
-                </table>
-                <pre id="code"></pre>
+                <div style="width: 90%; margin-left: 50px">
+                    <h2> History submission </h2>
+                <div id="table_history_submission">
+                </div>
             </div>
             </div>
 
@@ -117,24 +116,29 @@
                                 }
                                 response.json().then(function (data) {
                                     //                                        alert(data);
-                                    var txt = "<tr>" +
-                                            "<td class=\"ProblemColumn\">Problem</td>" +
-                                            "<td class=\"TrangThaiColumn\">Trạng thái</td>" +
-                                            "<td class=\"ThoiDiemSubmitColumn\">Thời điểm submit</td>" +
-                                            "<td class=\"ViewCodeColmn\"> Xem code </td>" +
-                                            "</tr>";
+                                    var txt = "<table><thead><tr>" +
+                                            "<th class='_w30'>Problem</th>" +
+                                            "<th class='_w20'>Trạng thái</th>" +
+                                            "<th class='_w35'>Thời điểm submit</th>" +
+                                            "<th class='_w25'> Xem code </th>" +
+                                            "</tr></thead></table>";
                                     for (x in data) {
-                                        txt += "<tr>" +
-                                                "<td>" + data[x].baiTap.ten + "</td>" +
-                                                "<td>" + data[x].trangThai + "</td>" +
-                                                "<td>" + data[x].thoiDiemSubmit + "</td>" +
-                                                "<td><button onclick=\"showCode('id" + data[x].id + "')\">  Xem Code </button></td>" +
-                                                "</tr>" +
-                                                "<tr id=\"id" + data[x].id + "\" style=\"display: none\">" +
-                                                "<td colspan=\"4\">" + data[x].code + "</td>" +
-                                                "</tr>";
+                                        txt += "<table><tr>" +
+                                                "<td class='_w30'>" + data[x].baiTap.ten + "</td>";
+                                        
+                                        if(data[x].trangThai=="Accept")
+                                            txt += "<td class='_w20' style='color: green'>" + data[x].trangThai + "</td>";
+                                        else 
+                                            txt += "<td class='_w20' style='color: red'>" + data[x].trangThai + "</td>";
+                                        
+                                        txt += "<td class='_w35'>" + data[x].thoiDiemSubmit + "</td>" +
+                                                "<td class='_w25'><button onclick=\"showCode('id" + data[x].id + "')\">  Xem Code </button></td>" +
+                                                "</tr></table><br>" +
+                                                "<pre id=\"id" + data[x].id + "\" style=\"padding: 15px; width: 95%; border-radius: 10px; background-color: pink; display: none\">" 
+                                                + data[x].code + 
+                                                "</pre>";
                                     }
-                                    document.getElementById("table_history_submission").innerHTML = txt;
+                                    document.getElementById("table_history_submission").innerHTML = txt+"<table>";
                                 });
                             }
                     )

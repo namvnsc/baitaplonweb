@@ -4,28 +4,6 @@ body{
     margin: 0px auto;
 }
 
-table{
-    border: 1px solid black;
-    border-collapse: collapse;
-    background-color: #FFF8DC;
-    width: 95%;
-    align-content: center;
-}
-
-thead{
-    height: 50px;
-    border: 1px solid black;
-    border-collapse: collapse;
-    background-color: cyan;
-}
-
-tr, td{
-    height: 70px;
-    border: 1px solid black;
-    border-collapse: collapse;
-    align-content: center;
-}
-
 .list_contest{
     width: 85%;
     margin-left: 75px;

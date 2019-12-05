@@ -4,11 +4,11 @@
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
+        <title>Contest</title>
         <link rel="stylesheet" href="../../Views/css/loginstyle.css">
         <link rel="stylesheet" href="../../Views/css/basestyle.css">
         <link rel="stylesheet" href="../../Views/css/tintuc.css">
-         <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
+        <link rel="stylesheet" href="../css/table.css" type="text/css">
     </head>
     <body>
         <div id="all1" style="height: 1500px;">
@@ -67,12 +67,12 @@
               
             </div>
                 <br><br><br>
-                <div style="height: 800px">
-                <h1 id="tenContest"> CONTEST </h1>
-                <h2 > List problem </h2>
-                <table id="table_problem_contend">
-                </table>
-            </div>
+                <div style="height: 800px; width: 90%">
+                    <h1 id="tenContest"> CONTEST </h1>
+                    <h2 > List problem </h2>
+                    <table id="table_problem_contend" >
+                    </table>
+                </div>
 
             </div>   
        
@@ -111,21 +111,24 @@
                                 }
                                 response.json().then(function (data) {
                                     document.getElementById("tenContest").innerHTML = "Contest " + data.contest.ten;
-                                    var txt = "<tr>" +
-                                            "<td class=\"STTColumn\"> STT </td>" +
-                                            "<td class=\"ProblemColumn\">Problem</td>" +
-                                            "<td class=\"DiemColumn\">Score</td>" +
-                                            "<td class=\"DiemColumn\">Solve</td>" +
-                                            "<td>Enter</td>" +
-                                            "</tr>";
+                                    var txt = "<thead><tr>" +
+                                            "<th class='_w10'> STT </th>" +
+                                            "<th class='_w30'>Problem</th>" +
+                                            "<th class='_w20'>Score</th>" +
+                                            "<th class='_w20'>Solve</th>" +
+                                            "<th class='_w20'>Enter</th>" +
+                                            "</tr></thead>";
                                     tmp = data.listRs
                                     for (x in tmp) {
                                         txt += "<tr>" +
                                                 "<td>" + tmp[x].problem.soThuTu + "</td>" +
                                                 "<td>" + tmp[x].problem.baiTap.ten + "</td>" +
-                                                "<td>" + tmp[x].problem.diem + "</td>" +
-                                                "<td>" + tmp[x].trangThai + "</td>" +
-                                                "<td><a href=\"problem.jsp?maBaiTap=" + tmp[x].problem.baiTap.ma + "&maContest=" + '<%=request.getParameter("maContest")%>' + "\"> làm bài </a></td>" +
+                                                "<td>" + tmp[x].problem.diem + "</td>";
+                                        if(tmp[x].trangThai=='Accept')
+                                                txt += "<td class='green'>" + tmp[x].trangThai + "</td>";
+                                        else
+                                                txt += "<td class='red'>" + tmp[x].trangThai + "</td>";
+                                        txt += "<td><a href=\"problem.jsp?maBaiTap=" + tmp[x].problem.baiTap.ma + "&maContest=" + '<%=request.getParameter("maContest")%>' + "\"> làm bài </a></td>" +
                                                 "</tr>";
                                     }
                                     document.getElementById("table_problem_contend").innerHTML = txt;

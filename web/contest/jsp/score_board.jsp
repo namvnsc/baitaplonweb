@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../../Views/css/basestyle.css">
         <link rel="stylesheet" href="../../Views/css/tintuc.css">
         <link href="../css/problem.css" rel="stylesheet" type="text/css">
-         <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
+         <link rel="stylesheet" href="../css/table.css" type="text/css">
     </head>
     <body>
         <div id="all1" style="height: 1500px;">
@@ -113,11 +113,11 @@
                                     return;
                                 }
                                 response.json().then(function (data) {
-                                    var txt = "<tr>" +
-                                            "<td class=\"STTColumn\"> Rank </td>" +
-                                            "<td class=\"ProblemColumn\">Username</td>" +
-                                            "<td class=\"DiemColumn\">Score</td>" +
-                                            "</tr>";
+                                    var txt = "<thead><tr>" +
+                                            "<th class='_w10'> Rank </th>" +
+                                            "<th class='_w25'>Username</th>" +
+                                            "<th class='_w15'>Score</th>" +
+                                            "</tr></thead>";
                                     tmp = data.listRsB;
                                     for (x in tmp) {
                                         txt += "<tr>" +
