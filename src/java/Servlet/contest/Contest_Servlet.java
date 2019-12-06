@@ -30,7 +30,6 @@ public class Contest_Servlet extends HttpServlet {
         response.setContentType("application/jsons");
         response.setCharacterEncoding("UTF-8");
         String ma = request.getParameter("maContest");
-
         String username = (String) request.getParameter("username");
         Contest ct = (new DAO_Contest()).getByCode(ma);
         if (ct.getTrangThai().equals("Chưa diễn ra")) {
@@ -44,7 +43,7 @@ public class Contest_Servlet extends HttpServlet {
                     out.print(str);
                     out.flush();
                 } else {
-                    response.getWriter().print("'ThongBao': 'Bạn không đăng ký tham gia contest này'");
+                    response.getWriter().print("{\"ThongBao\": \"Bạn không đăng ký tham gia contest này\"}");
                 }
             } else {
                 ResultBoard rs = (new DTO.DTO_ResultBoard()).get(username, ma);
@@ -78,6 +77,7 @@ public class Contest_Servlet extends HttpServlet {
         try {
             t = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(thoiDiemBatDau);
             ct.setThoiDiemBatDau(t.getTime());
+            System.out.println(t);
         } catch (ParseException ex) {
             Logger.getLogger(Submission_Servlet.class.getName()).log(Level.SEVERE, null, ex);
         }

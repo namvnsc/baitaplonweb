@@ -7,12 +7,12 @@
         <title>List contest</title>
         <link rel="stylesheet" href="../../Views/css/loginstyle.css">
         <link rel="stylesheet" href="../../Views/css/basestyle.css">
-        <link rel="stylesheet" href="../../Views/css/tintuc.css">">
+        <link rel="stylesheet" href="../../Views/css/tintuc.css">
         <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
         <link rel="stylesheet" href="../css/table.css" type="text/css">
     </head>
     <body>
-        <div id="all1" style="height: 1500px;">
+        <div id="all1" style="height: 1500px">
             <div id="headerone">
                 <div  id="headerone11"></div>
                 <div id="headerone1">
@@ -121,10 +121,10 @@
                                         txt += "<td>" + myObj[x].trangThai + "</td>";
                                     }
                                     if (myObj[x].trangThai == "Đã kết thúc" || myObj[x].trangThai == "Đang diễn ra") {
-                                        txt += "<td><a href=\"contest.jsp?maContest=" + myObj[x].ma + "\"> tham gia </a></td>" +
+                                        txt += "<td><a href=\"contest.jsp?maContest=" + myObj[x].ma + "&username="+'<%=(String)session.getAttribute("username")%>'+"\"> tham gia </a></td>" +
                                                 "</tr>";
                                     } else {
-                                        txt += "<td><a href=\"register.jsp?maContest=" + myObj[x].ma + "\"> Đăng ký </a></td>" +
+                                        txt += "<td><a href=\"register.jsp?maContest=" + myObj[x].ma + "&username="+'<%=(String)session.getAttribute("username")%>'+"\"> Đăng ký </a></td>" +
                                                 "</tr>";
                                     }
                                 }

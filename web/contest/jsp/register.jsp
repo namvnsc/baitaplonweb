@@ -9,17 +9,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>register contest</title>
+        <title>Register contest</title>
         <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
     </head>
     <body>
-        <jsp:include page="div_header.jsp"></jsp:include>
+        <%--<jsp:include page="div_header.jsp"></jsp:include>--%>
         <div class="list_contest">
             <h1 id="thongbao"> Đang yêu cầu đăng ký </h1>
             <h1> Đếm ngược </h1>
             <h1 id="clock"></h1>
         </div>
-        <jsp:include page="div_footer.jsp"></jsp:include>
+        <%--<jsp:include page="div_footer.jsp"></jsp:include>--%>
     </body>
     <script>
         var data = {

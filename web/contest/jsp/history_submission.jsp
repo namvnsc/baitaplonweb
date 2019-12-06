@@ -4,7 +4,7 @@
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
+        <title>History submission</title>
         <link rel="stylesheet" href="../../Views/css/loginstyle.css">
         <link rel="stylesheet" href="../../Views/css/basestyle.css">
         <link rel="stylesheet" href="../../Views/css/tintuc.css">
@@ -124,14 +124,14 @@
                                             "</tr></thead></table>";
                                     for (x in data) {
                                         txt += "<table><tr>" +
-                                                "<td class='_w30'>" + data[x].baiTap.ten + "</td>";
+                                                "<td class='_w30'><a href='problem.jsp?maBaiTap=" + data[x].baiTap.ma + "&maContest=" + '<%=request.getParameter("maContest")%>' + "'>" + data[x].baiTap.ten + "</a></td>";
                                         
                                         if(data[x].trangThai=="Accept")
                                             txt += "<td class='_w20' style='color: green'>" + data[x].trangThai + "</td>";
                                         else 
                                             txt += "<td class='_w20' style='color: red'>" + data[x].trangThai + "</td>";
                                         
-                                        txt += "<td class='_w35'>" + data[x].thoiDiemSubmit + "</td>" +
+                                        txt += "<td class='_w35'>" + new Date(data[x].thoiDiemSubmit) + "</td>" +
                                                 "<td class='_w25'><button onclick=\"showCode('id" + data[x].id + "')\">  Xem Code </button></td>" +
                                                 "</tr></table><br>" +
                                                 "<pre id=\"id" + data[x].id + "\" style=\"padding: 15px; width: 95%; border-radius: 10px; background-color: pink; display: none\">" 

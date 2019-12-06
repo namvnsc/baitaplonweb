@@ -40,12 +40,12 @@ public class ProcessJugde {
             outs.write(sub.getCode());
             outi = new FileWriter(input);
             outi.write((new DAO_BaiTap()).getInput(sub.getBaiTap().getMa()));
+            System.out.println((new DAO_BaiTap()).getInput(sub.getBaiTap().getMa()));
             outo = new FileWriter(output);
             outo.write((new DAO_BaiTap()).getOutput(sub.getBaiTap().getMa()));
             outs.close();
             outi.close();
             outo.close();
-//            System.out.println(sub.getCode());
         } catch (IOException ex) {
             Logger.getLogger(ProcessJugde.class.getName()).log(Level.SEVERE, null, ex);
         } 
