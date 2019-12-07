@@ -53,11 +53,6 @@ public class Submission_Servlet extends HttpServlet {
         thoiDiemSubmit = reader.nextString().replace('T', ' ').replace('Z', ' ').trim();
         reader.endObject();
         reader.close();
-        try {
-            t = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(thoiDiemSubmit);
-        } catch (ParseException ex) {
-            Logger.getLogger(Submission_Servlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
         response.getWriter().print("{\"ThongBao\": \"submit thành công\"}");
         Submission sub = new Submission();
         sub.setTaiKhoan(new TaiKhoan(us, null));
@@ -65,8 +60,13 @@ public class Submission_Servlet extends HttpServlet {
         baiTap.setMa(ma);
         sub.setBaiTap(baiTap);
         sub.setCode(code);
+        try {
+            t = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(thoiDiemSubmit);
+            sub.setThoiDiemSubmit(t.getTime()+7*60*60*1000);
+        } catch (ParseException ex) {
+            Logger.getLogger(Submission_Servlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         sub.setTrangThai("Đang chạy");
-        sub.setThoiDiemSubmit(new Date(t.getTime()));
         int id = (new DAO_Submission()).save(sub);
         System.out.println(id);
 //        // cham bai

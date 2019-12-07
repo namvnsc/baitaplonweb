@@ -113,6 +113,11 @@
                                     return;
                                 }
                                 response.json().then(function (data) {
+                                    if(data.ThongBao!=null){
+                                        document.getElementById("tenContest").innerHTML = data.ThongBao+
+                                                "<h3 style='color: red'> Nếu bạn vẫn muốn luyện tập với contest vui lòng chờ contest kết thúc </h3>";
+                                        return;
+                                    }
                                     document.getElementById("tenContest").innerHTML = "Contest " + data.contest.ten;
                                     var txt = "<thead><tr>" +
                                             "<th class='_w10'> STT </th>" +

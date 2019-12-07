@@ -4,11 +4,14 @@
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
         <title>Contest</title>
         <link rel="stylesheet" href="../../Views/css/loginstyle.css">
         <link rel="stylesheet" href="../../Views/css/basestyle.css">
         <link rel="stylesheet" href="../../Views/css/tintuc.css">
         <link rel="stylesheet" href="../css/table.css" type="text/css">
+        <title>Edit Page</title>
+
     </head>
     <body>
         <div id="all1" style="height: 700px;">

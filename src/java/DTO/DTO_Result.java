@@ -18,13 +18,13 @@ public class DTO_Result {
         ArrayList<Submission> l = (new DAO_Submission()).getAllForBaiTap(pro.getBaiTap().getMa(), username);
         Contest contest = (new DAO_Contest()).getByCode(maContest);
         long t1 = contest.getThoiDiemBatDau();
-        long t2 = contest.getThoiDiemBatDau() + (long) (contest.getThoiGian() * 1000);
+        long t2 = contest.getThoiDiemBatDau() + (long) (contest.getThoiGian()*60*60*1000);
         Result rs = new Result();
         rs.setProblem(pro);
         rs.setTaiKhoan(new TaiKhoan(username, null));
         int countSubmitInTime = 0;
         for (Submission sub : l) {
-            if (t1 <= sub.getThoiDiemSubmit().getTime() && sub.getThoiDiemSubmit().getTime() <= t2) {
+            if (t1 <= sub.getThoiDiemSubmit() && sub.getThoiDiemSubmit() <= t2) {
                 if (sub.getTrangThai().equals("Accept")) {
                     rs.setTrangThai("Accept");
                     break;

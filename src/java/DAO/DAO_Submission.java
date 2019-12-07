@@ -7,7 +7,6 @@ import Entities.contest.Submission;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -42,14 +41,14 @@ public class DAO_Submission implements BaseDAO {
                 s.setCode(rs.getString("Code"));
                 s.setTrangThai(rs.getString("Trang_Thai"));
                 Date t = new Date();
-                t.setTime(rs.getTimestamp("Thoi_Diem_Submit").getTime() + 7 * 60 * 60 * 1000);
-                s.setThoiDiemSubmit(t);
+                t.setTime(rs.getTimestamp("Thoi_Diem_Submit").getTime());
+                s.setThoiDiemSubmit(t.getTime());
                 ds.add(s);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAO_Submission.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Collections.sort(ds, (Submission s1, Submission s2) -> (int) (s1.getThoiDiemSubmit().getTime() - s2.getThoiDiemSubmit().getTime()));
+        Collections.sort(ds, (Submission s1, Submission s2) -> (int) (s1.getThoiDiemSubmit() - s2.getThoiDiemSubmit()));
         return ds;
     }
 
@@ -72,14 +71,14 @@ public class DAO_Submission implements BaseDAO {
                 s.setCode(rs.getString("Code"));
                 s.setTrangThai(rs.getString("Trang_Thai"));
                 Date t = new Date();
-                t.setTime(rs.getTimestamp("Thoi_Diem_Submit").getTime() + 7 * 60 * 60 * 1000);
-                s.setThoiDiemSubmit(t);
+                t.setTime(rs.getTimestamp("Thoi_Diem_Submit").getTime());
+                s.setThoiDiemSubmit(t.getTime());
                 ds.add(s);
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAO_Submission.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Collections.sort(ds, (Submission s1, Submission s2) -> (int) (s1.getThoiDiemSubmit().getTime() - s2.getThoiDiemSubmit().getTime()));
+        Collections.sort(ds, (Submission s1, Submission s2) -> (int) (s1.getThoiDiemSubmit() - s2.getThoiDiemSubmit()));
         return ds;
     }
     
@@ -98,8 +97,8 @@ public class DAO_Submission implements BaseDAO {
                 s.setCode(rs.getString("Code"));
                 s.setTrangThai(rs.getString("Trang_Thai"));
                 Date t = new Date();
-                t.setTime(rs.getTimestamp("Thoi_Diem_Submit").getTime() + 7 * 60 * 60 * 1000);
-                s.setThoiDiemSubmit(t);
+                t.setTime(rs.getTimestamp("Thoi_Diem_Submit").getTime());
+                s.setThoiDiemSubmit(t.getTime());
             }
         } catch (SQLException ex) {
             Logger.getLogger(DAO_Submission.class.getName()).log(Level.SEVERE, null, ex);
@@ -110,18 +109,13 @@ public class DAO_Submission implements BaseDAO {
     public int save(Submission sub) {
         String sql = "insert into submission(Username, Ma_Bai_Tap, Code, Trang_Thai, Thoi_Diem_Submit) "
                 + "values(?, ?, ?, ?, ?)";
-        java.sql.Date date = new java.sql.Date(sub.getThoiDiemSubmit().getTime());
-        System.out.println(date);
-        java.sql.Time time = new Time(sub.getThoiDiemSubmit().getTime() - date.getTime());
-        System.out.println(time);
-        Timestamp t = new Timestamp(sub.getThoiDiemSubmit().getTime());
         try {
             PreparedStatement pre = con.prepareStatement(sql);
             pre.setString(1, sub.getTaiKhoan().getUsername());
             pre.setString(2, sub.getBaiTap().getMa());
             pre.setString(3, sub.getCode());
             pre.setString(4, sub.getTrangThai());
-            pre.setTimestamp(5, t);
+            pre.setTimestamp(5, new Timestamp(sub.getThoiDiemSubmit()));
 //            pre.setDate(5, date) ;
             boolean rs = pre.execute();
         } catch (SQLException ex) {

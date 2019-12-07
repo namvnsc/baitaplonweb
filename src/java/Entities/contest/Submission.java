@@ -12,7 +12,7 @@ public class Submission {
     private BaiTap baiTap;
     private String code;
     private String trangThai;
-    private Date thoiDiemSubmit;
+    private long thoiDiemSubmit;
 
     public long getId() {
         return id;
@@ -54,11 +54,11 @@ public class Submission {
         this.trangThai = trangThai;
     }
 
-    public Date getThoiDiemSubmit() {
+    public long getThoiDiemSubmit() {
         return thoiDiemSubmit;
     }
 
-    public void setThoiDiemSubmit(Date thoiDiemSubmit) {
+    public void setThoiDiemSubmit(long thoiDiemSubmit) {
         this.thoiDiemSubmit = thoiDiemSubmit;
     }
 

@@ -5,6 +5,7 @@
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Register contest</title>
+
         <link rel="stylesheet" href="../../Views/css/loginstyle.css">
         <link rel="stylesheet" href="../../Views/css/basestyle.css">
         <link rel="stylesheet" href="../../Views/css/tintuc.css">
@@ -92,6 +93,18 @@
             </div>
 
             <script src="Views/script/detectSQLinjection.js"></script>
+
+        <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
+    </head>
+    <body>
+        <%--<jsp:include page="div_header.jsp"></jsp:include>--%>
+        <div class="list_contest">
+            <h1 id="thongbao"> Đang yêu cầu đăng ký </h1>
+            <h1> Đếm ngược </h1>
+            <h1 id="clock"></h1>
+        </div>
+        <%--<jsp:include page="div_footer.jsp"></jsp:include>--%>
+
     </body>
     <script>
         var data = {
