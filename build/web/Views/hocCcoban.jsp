@@ -58,10 +58,10 @@
                 <div id="headerLH">
                     <div class="DivMenu">
                    
-                        <a href="TinTuc.jsp" class="button-back-next1">News</a>
-                        <a href="../contest/jsp/list_contest.jsp" class="button-back-next1">List Contest</a>
-                        <a href="khoahoc.jsp" class="button-back-next1">Courses</a>
-                        <a href="login.jsp" class="button-back-next1">Home Page</a>
+                        <a href="TinTuc.jsp" class="button-back-next1"><b>News</b></a>
+                        <a href="../contest/jsp/list_contest.jsp" class="button-back-next1"><b>List Contest</b></a>
+                        <a href="khoahoc.jsp" class="button-back-next1"><b>Courses</b></a>
+                        <a href="login.jsp" class="button-back-next1"><b>Home Page</b></a>
                     </div> 
                 </div>
                 <div id="headerLH1">
@@ -72,14 +72,14 @@
                             <span style="font-size: 15px">Hi, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
                         </div>
                         <div id="headerLuaCHon">
-                            <a href="logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Đăng Xuất</a>
-                            <a href="mainpage.jsp" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Trang Cá Nhân</a>
+                            <a href="logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;"><b>Đăng Xuất</b></a>
+                            <a href="mainpage.jsp" class="button-back-next1" style="padding: 20px 10px 10px 10px;"><b>Trang Cá Nhân</b></a>
                             
                         </div>
                     <% }  else { %>
                         
-                        <a href="index.jsp" class="button-back-next1" style="padding: 20px 10px 10px;">Đăng Nhập</a>
-                        <a href="signUp.jsp" class="button-back-next1" style="padding: 20px;">Đăng Ký</a>
+                    <a href="index.jsp" class="button-back-next1" style="padding: 20px 10px 10px;"><b>Đăng Nhập</b></a>
+                    <a href="signUp.jsp" class="button-back-next1" style="padding: 20px;"><b>Đăng Ký</b></a>
                     
                     <%  }%>
                    

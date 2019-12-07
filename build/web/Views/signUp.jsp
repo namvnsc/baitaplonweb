@@ -69,16 +69,16 @@
                 <div id="headerone22">
                     <div class="DivMenu">
                        
-                        <a href="TinTuc.jsp" class="button-back-next1">News</a>
-                        <a href="../contest/jsp/list_contest.jsp" class="button-back-next1">List Contest</a>
-                        <a href="khoahoc.jsp" class="button-back-next1">Courses</a>
-                        <a href="login.jsp" class="button-back-next1">Home Page</a>
+                        <a href="TinTuc.jsp" class="button-back-next1"><b>News</b></a>
+                        <a href="../contest/jsp/list_contest.jsp" class="button-back-next1"><b>List Contest</b></a>
+                        <a href="khoahoc.jsp" class="button-back-next1"><b>Courses</b></a>
+                        <a href="login.jsp" class="button-back-next1"><b>Home Page</b></a>
                     </div> 
                 </div>
                 <div id="headerone2">
                    
-                    <a href="index.jsp" class="button-back-next1" style="padding: 10px 10px 10px;">Đăng Nhập</a>
-                    <a href="signUp.jsp" class="button-back-next1" style="padding: 10px;">Đăng Ký</a>
+                    <a href="index.jsp" class="button-back-next1" style="padding: 10px 10px 10px;"><b>Đăng Nhập</b></a>
+                    <a href="signUp.jsp" class="button-back-next1" style="padding: 10px;"><b>Đăng Ký</b></a>
                     
                 </div>
                 

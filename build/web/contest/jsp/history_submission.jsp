@@ -8,8 +8,7 @@
         <link rel="stylesheet" href="../../Views/css/loginstyle.css">
         <link rel="stylesheet" href="../../Views/css/basestyle.css">
         <link rel="stylesheet" href="../../Views/css/tintuc.css">
-        <link href="../css/problem.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
+        <link rel="stylesheet" href="../css/table.css" type="text/css">
     </head>
     <body>
         <div id="all1" style="height: 1500px;">
@@ -21,10 +20,10 @@
                 <div id="headerLH" style="margin: 0px">
                     <div class="DivMenu">
 
-                        <a href="../../Views/TinTuc.jsp" class="button-back-next1">News</a>
-                        <a href="list_contest.jsp" class="button-back-next1">List Contest</a>
-                        <a href="../../Views/khoahoc.jsp" class="button-back-next1">Courses</a>
-                        <a href="../../Views/login.jsp" class="button-back-next1">Home Page</a>
+                        <a href="../../Views/TinTuc.jsp" class="button-back-next1"><b>News</b></a>
+                        <a href="list_contest.jsp" class="button-back-next1"><b>List Contest</b></a>
+                        <a href="../../Views/khoahoc.jsp" class="button-back-next1"><b>Courses</b></a>
+                        <a href="../../Views/login.jsp" class="button-back-next1"><b>Home Page</b></a>
                     </div> 
                 </div>
                 <div id="headerLH1">
@@ -35,13 +34,13 @@
                         <span style="font-size: 15px">Hi, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
                     </div>
                     <div id="headerLuaCHon">
-                        <a href="../../Views/logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Đăng Xuất</a>
-                        <a href="../../Views/mainpage.jsp" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Trang Cá Nhân</a>
+                        <a href="../../Views/logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;"><b>Đăng Xuất</b></a>
+                        <a href="../../Views/mainpage.jsp" class="button-back-next1" style="padding: 20px 10px 10px 10px;"><b>Trang Cá Nhân</b></a>
 
                     </div>
                     <% } else { %>
-                   <a href="../../Views/index.jsp" class="button-back-next1" style="padding: 20px 10px 10px;">Đăng Nhập</a>
-                    <a href="../../Views/signUp.jsp" class="button-back-next1" style="padding: 20px;">Đăng Ký</a>
+                    <a href="../../Views/index.jsp" class="button-back-next1" style="padding: 20px 10px 10px;"><b>Đăng Nhập</b></a>
+                    <a href="../../Views/signUp.jsp" class="button-back-next1" style="padding: 20px;"><b>Đăng Ký</b></a>
 
                     <%  }%>
 
@@ -60,24 +59,27 @@
                 <!--                <h1 style="padding: 100px 0px 0px 450px;  margin: 0; font-size: 200px; font-family: inherit;"></h1>
                                 <i style="padding-left: 300px; font-size: 50px; font-family: inherit;"></i>
                 -->
-            </div>       
+            </div>  
+                    <br>
+            <div id="mm">
+                <div id="mm1"></div>
+                <div id="mm2">
+                    <div class="DivMenu" style="border: px solid green;" > 
+                        <a href="history_submission.jsp?username=<%=session.getAttribute("username")%>&maContest=<%=request.getParameter("maContest")%>" class="button-back-next1" style="text-decoration: none; color: black; padding: 15px; text"><b style="font-family: inherit; font-size: 20px">History submission</b></a>
+                        <a href="score_board.jsp?maContest=<%=request.getParameter("maContest")%>" style="text-decoration: none; color: black; padding: 15px" class="button-back-next1"><b style="font-family: inherit; font-size: 20px">Score Board</b></a>
+                        <a href="contest.jsp?maContest=<%=request.getParameter("maContest")%>" style="text-decoration: none; color: black; padding: 15px" class="button-back-next1"><b style="font-family: inherit; font-size: 20px">List Problem</b></a>
 
-            <div id="body" style="height: 1000px; background-color: whitesmoke;">
-                <br>
-
-                <div class="DivMenu" style="border: px solid green;  padding-left: 50px" > 
-                    <a href="history_submission.jsp?username=<%=session.getAttribute("username")%>&maContest=<%=request.getParameter("maContest")%>" class="button-back-next1" style="text-decoration: none; color: black; padding: 15px; text"><b style="font-family: inherit; font-size: 20px">History submission</b></a>
-                    <a href="score_board.jsp?maContest=<%=request.getParameter("maContest")%>" style="text-decoration: none; color: black; padding: 15px" class="button-back-next1"><b style="font-family: inherit; font-size: 20px">Score Board</b></a>
-                    <a href="contest.jsp?maContest=<%=request.getParameter("maContest")%>" style="text-decoration: none; color: black; padding: 15px" class="button-back-next1"><b style="font-family: inherit; font-size: 20px">List Problem</b></a>
-
+                    </div>
                 </div>
-                <hr style="width: 100%;">
+            </div>
+            <div id="body" style="height: 1500px; background-color: whitesmoke; padding-left: 50px">
+           
                 <br>
-                <br>
-                <div class="list_contest" style="height: 700px">
-                <table id="table_history_submission">
-                </table>
-                <pre id="code"></pre>
+                <div style="width: 90%; margin-left: 50px">
+                    <h2> History submission </h2>
+                    <br>
+                <div id="table_history_submission">
+                </div>
             </div>
             </div>
 
@@ -117,24 +119,29 @@
                                 }
                                 response.json().then(function (data) {
                                     //                                        alert(data);
-                                    var txt = "<tr>" +
-                                            "<td class=\"ProblemColumn\">Problem</td>" +
-                                            "<td class=\"TrangThaiColumn\">Trạng thái</td>" +
-                                            "<td class=\"ThoiDiemSubmitColumn\">Thời điểm submit</td>" +
-                                            "<td class=\"ViewCodeColmn\"> Xem code </td>" +
-                                            "</tr>";
+                                    var txt = "<table><thead><tr>" +
+                                            "<th class='_w30'>Problem</th>" +
+                                            "<th class='_w20'>Trạng thái</th>" +
+                                            "<th class='_w35'>Thời điểm submit</th>" +
+                                            "<th class='_w25'> Xem code </th>" +
+                                            "</tr></thead></table>";
                                     for (x in data) {
-                                        txt += "<tr>" +
-                                                "<td>" + data[x].baiTap.ten + "</td>" +
-                                                "<td>" + data[x].trangThai + "</td>" +
-                                                "<td>" + data[x].thoiDiemSubmit + "</td>" +
-                                                "<td><button onclick=\"showCode('id" + data[x].id + "')\">  Xem Code </button></td>" +
-                                                "</tr>" +
-                                                "<tr id=\"id" + data[x].id + "\" style=\"display: none\">" +
-                                                "<td colspan=\"4\">" + data[x].code + "</td>" +
-                                                "</tr>";
+                                        txt += "<table><tr>" +
+                                                "<td class='_w30'>" + data[x].baiTap.ten + "</td>";
+                                        
+                                        if(data[x].trangThai=="Accept")
+                                            txt += "<td class='_w20' style='color: green'>" + data[x].trangThai + "</td>";
+                                        else 
+                                            txt += "<td class='_w20' style='color: red'>" + data[x].trangThai + "</td>";
+                                        
+                                        txt += "<td class='_w35'>" + data[x].thoiDiemSubmit + "</td>" +
+                                                "<td class='_w25'><button onclick=\"showCode('id" + data[x].id + "')\">  Xem Code </button></td>" +
+                                                "</tr></table><br>" +
+                                                "<pre id=\"id" + data[x].id + "\" style=\"padding: 15px; width: 95%; border-radius: 10px; background-color: pink; display: none\">" 
+                                                + data[x].code + 
+                                                "</pre>";
                                     }
-                                    document.getElementById("table_history_submission").innerHTML = txt;
+                                    document.getElementById("table_history_submission").innerHTML = txt+"<table>";
                                 });
                             }
                     )

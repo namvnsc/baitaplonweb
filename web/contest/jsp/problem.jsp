@@ -21,10 +21,10 @@
                 <div id="headerLH" style="margin: 0px">
                     <div class="DivMenu">
                         
-                        <a href="../../Views/TinTuc.jsp" class="button-back-next1">News</a>
-                        <a href="list_contest.jsp" class="button-back-next1">List Contest</a>
-                        <a href="../../Views/khoahoc.jsp" class="button-back-next1">Courses</a>
-                        <a href="../../Views/login.jsp" class="button-back-next1">Home Page</a>
+                        <a href="../../Views/TinTuc.jsp" class="button-back-next1"><b>News</b></a>
+                        <a href="list_contest.jsp" class="button-back-next1"><b>List Contest</b></a>
+                        <a href="../../Views/khoahoc.jsp" class="button-back-next1"><b>Courses</b></a>
+                        <a href="../../Views/login.jsp" class="button-back-next1"><b>Home Page</b></a>
                     </div> 
                 </div>
                 <div id="headerLH1">
@@ -35,13 +35,13 @@
                             <span style="font-size: 15px">Hi, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
                         </div>
                         <div id="headerLuaCHon">
-                            <a href="../../Views/logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Đăng Xuất</a>
-                            <a href="../../Views/mainpage.jsp" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Trang Cá Nhân</a>
+                            <a href="../../Views/logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;"><b>Đăng Xuất</b></a>
+                            <a href="../../Views/mainpage.jsp" class="button-back-next1" style="padding: 20px 10px 10px 10px;"><b>Trang Cá Nhân</b></a>
                             
                         </div>
                     <% }  else { %>
-                       <a href="../../Views/index.jsp" class="button-back-next1" style="padding: 20px 10px 10px;">Đăng Nhập</a>
-                        <a href="../../Views/signUp.jsp" class="button-back-next1" style="padding: 20px;">Đăng Ký</a>
+                    <a href="../../Views/index.jsp" class="button-back-next1" style="padding: 20px 10px 10px;"><b>Đăng Nhập</b></a>
+                    <a href="../../Views/signUp.jsp" class="button-back-next1" style="padding: 20px;"><b>Đăng Ký</b></a>
                     
                     <%  }%>
                    
@@ -57,22 +57,26 @@
                 <i style="padding-left: 300px; font-size: 50px; font-family: inherit;"></i>
                 -->
             </div>       
-            
-            <div id="body" style="height: 1000px; background-color: whitesmoke; padding-left: 50px">
-                <br>
-                <div class="DivMenu" style="border: px solid green;" > 
-                    <a href="history_submission.jsp?username=<%=session.getAttribute("username")%>&maContest=<%=request.getParameter("maContest")%>" class="button-back-next1" style="text-decoration: none; color: black; padding: 15px; text"><b style="font-family: inherit; font-size: 20px">History submission</b></a>
-                    <a href="score_board.jsp?maContest=<%=request.getParameter("maContest")%>" style="text-decoration: none; color: black; padding: 15px" class="button-back-next1"><b style="font-family: inherit; font-size: 20px">Score Board</b></a>
-                    <a href="contest.jsp?maContest=<%=request.getParameter("maContest")%>" style="text-decoration: none; color: black; padding: 15px" class="button-back-next1"><b style="font-family: inherit; font-size: 20px">List Problem</b></a>
+            <div id="mm">
+                <div id="mm1"></div>
+                <div id="mm2">
+                    <div class="DivMenu" style="border: px solid green;" > 
+                        <a href="history_submission.jsp?username=<%=session.getAttribute("username")%>&maContest=<%=request.getParameter("maContest")%>" class="button-back-next1" style="text-decoration: none; color: black; padding: 15px; text"><b style="font-family: inherit; font-size: 20px">History submission</b></a>
+                        <a href="score_board.jsp?maContest=<%=request.getParameter("maContest")%>" style="text-decoration: none; color: black; padding: 15px" class="button-back-next1"><b style="font-family: inherit; font-size: 20px">Score Board</b></a>
+                        <a href="contest.jsp?maContest=<%=request.getParameter("maContest")%>" style="text-decoration: none; color: black; padding: 15px" class="button-back-next1"><b style="font-family: inherit; font-size: 20px">List Problem</b></a>
 
+                    </div>
+                </div>
             </div>
-                    <hr style="width: 100%;">
-                    <br><br><br>
+            <div id="body" style="height: 1300px; background-color: whitesmoke; padding-left: 50px">
+                
+                <br>
+                <br>
                 <div class="list_contest" style="height: 700px">
                     <h1 id="tenbaitap" style="font-family: inherit; text-align: center; "></h1>
                     <pre id="debai" style="font-family: inherit; font-size: 20px; border-radius: 15px;  background-color: #CDC8B1; padding: 10px"></pre>
-                    <h3>Online Code C Editor</h3>
-                    <textarea id="CodeEditorArea" id="input">
+                    <h3>Online Code C/C++ Editor</h3>
+                    <textarea id="CodeEditorArea" style="width: 100%" id="input">
 #include <stdio.h>
 int main()
 {

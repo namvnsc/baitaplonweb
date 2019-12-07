@@ -33,10 +33,22 @@
 
 #Theader3{
     width: 100%;
-    height: 600px;
-    background-image: url('https://media1.thehungryjpeg.com/thumbs2/800_3492963_e8343da2bf730d910e340341d80e52708ea43fff_try-hard-svg-cut-file.png');
+    height: 500px;
+    background-image: url('../resources/try.png');
     background-position: center;
     background-repeat: no-repeat;
+    color: black;
+    margin: 0px auto;
+    color: white;
+}
+
+#Theader4{
+    width: 100%;
+    height: 500px;
+    background-image: url('../resources/admin.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
     color: black;
     margin: 0px auto;
     color: white;
@@ -97,5 +109,27 @@
     width: 80%;
     height: 100%;
     float: right;
+}
+
+#mm{
+    height: 60px;
+    width: 100%;
+    background-color: activecaption;
+    padding-left: 0px;
+
+}
+
+#mm1{
+    height: 60px;
+    width: 4%;
+    float: left;
+}
+
+#mm2{
+    height: 60px;
+    width: 90%;
+    float: left;
+
+
 }
 

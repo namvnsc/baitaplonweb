@@ -58,10 +58,10 @@
                 <div id="headerLH">
                     <div class="DivMenu">
                    
-                        <a href="TinTuc.jsp" class="button-back-next1">News</a>
-                        <a href="../contest/jsp/list_contest.jsp" class="button-back-next1">List Contest</a>
-                        <a href="khoahoc.jsp" class="button-back-next1">Courses</a>
-                        <a href="login.jsp" class="button-back-next1">Home Page</a>
+                        <a href="TinTuc.jsp" class="button-back-next1"><b>News</b></a>
+                        <a href="../contest/jsp/list_contest.jsp" class="button-back-next1"><b>List Contest</b></a>
+                        <a href="khoahoc.jsp" class="button-back-next1"><b>Courses</b></a>
+                        <a href="login.jsp" class="button-back-next1"><b>Home Page</b></a>
                     </div> 
                 </div>
                 <div id="headerLH1">
@@ -72,8 +72,8 @@
                             <span style="font-size: 15px">Hi, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
                         </div>
                         <div id="headerLuaCHon">
-                            <a href="logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Đăng Xuất</a>
-                            <a href="mainpage.jsp" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Trang Cá Nhân</a>
+                            <a href="logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;"><b>Đăng Xuất</b></a>
+                            <a href="mainpage.jsp" class="button-back-next1" style="padding: 20px 10px 10px 10px;"><b>Trang Cá Nhân</b></a>
                             
                         </div>
                     <% }  else { %>
@@ -109,7 +109,7 @@
                     <br>
                     <div class="back-next">
                         <div style="width: 17%;float: left"><a href="<%= "hocCcoban.jsp?ma=" + back%>"><button class="button-back-next">Bài trước</button></a></div>
-                        <div style="width: 66%;float: left;"><h2 style="margin-left: 10%"><%= "Lập trình C cơ bản - " + baiHoc.getTen()%></h2></div>
+                        <div style="width: 66%;float: left;"><h2 style="margin-left: 10%"><%= "Nhập môn giải thuật - " + baiHoc.getTen()%></h2></div>
                         <div style="width: 17%;float: left"><a href="<%= "hocCcoban.jsp?ma=" + next%>"><button class="button-back-next" style="float: right">Bài tiếp theo</button></a></div>
                     </div>
                     <div id="main-content">
@@ -128,7 +128,7 @@
                             }%>
                     </div>
                     <div id="code-editor">
-                        <h2>Online Code C Editor</h2>
+                        <h2>Online Code C/C++ Editor</h2>
                         <textarea id="input" onkeydown="insertTab(this, event);">#include <stdio.h>
 int main()
 {

@@ -4,12 +4,12 @@
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
+        <title>List contest</title>
         <link rel="stylesheet" href="../../Views/css/loginstyle.css">
         <link rel="stylesheet" href="../../Views/css/basestyle.css">
         <link rel="stylesheet" href="../../Views/css/tintuc.css">
-        <link href="../css/problem.css" rel="stylesheet" type="text/css">
-         <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
+        <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
+        <link rel="stylesheet" href="../css/table.css" type="text/css">
     </head>
     <body>
         <div id="all1" style="height: 1500px;">
@@ -21,10 +21,10 @@
                 <div id="headerLH" style="margin: 0px">
                     <div class="DivMenu">
                         
-                        <a href="../../Views/TinTuc.jsp" class="button-back-next1">News</a>
-                        <a href="list_contest.jsp" class="button-back-next1">List Contest</a>
-                        <a href="../../Views/khoahoc.jsp" class="button-back-next1">Courses</a>
-                        <a href="../../Views/login.jsp" class="button-back-next1">Home Page</a>
+                        <a href="../../Views/TinTuc.jsp" class="button-back-next1"><b>News</b></a>
+                        <a href="list_contest.jsp" class="button-back-next1"><b>List Contest</b></a>
+                        <a href="../../Views/khoahoc.jsp" class="button-back-next1"><b>Courses</b></a>
+                        <a href="../../Views/login.jsp" class="button-back-next1"><b>Home Page</b></a>
                     </div> 
                 </div>
                 <div id="headerLH1">
@@ -35,13 +35,13 @@
                             <span style="font-size: 15px">Hi, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
                         </div>
                         <div id="headerLuaCHon">
-                            <a href="../../Views/logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Đăng Xuất</a>
-                            <a href="../../Views/mainpage.jsp" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Trang Cá Nhân</a>
+                            <a href="../../Views/logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;"><b>Đăng Xuất</b></a>
+                            <a href="../../Views/mainpage.jsp" class="button-back-next1" style="padding: 20px 10px 10px 10px;"><b>Trang Cá Nhân</b></a>
                             
                         </div>
                     <% }  else { %>
-                        <a href="../../Views/index.jsp" class="button-back-next1" style="padding: 20px 10px 10px;">Đăng Nhập</a>
-                        <a href="../../Views/signUp.jsp" class="button-back-next1" style="padding: 20px;">Đăng Ký</a>
+                    <a href="../../Views/index.jsp" class="button-back-next1" style="padding: 20px 10px 10px;"><b>Đăng Nhập</b></a>
+                    <a href="../../Views/signUp.jsp" class="button-back-next1" style="padding: 20px;"><b>Đăng Ký</b></a>
                     
                     <%  }%>
                    
@@ -52,16 +52,15 @@
                 </div>
             </div>
             
-            <div id="Theader" style="height: 500px">
+            <div id="Theader" style="height: 400px">
                 <h1 style="padding: 100px 0px 0px 400px;  margin: 0; font-size: 150px; font-family: inherit;"> CONTEST</h1>
                 <i style="padding-left: 200px; font-size: 50px; font-family: inherit;">Những contest hàng tuần, hàng tháng liên tục được cập nhật</i>
                 
             </div>      
             
-            <div id="body" style="height: 1000px; background-color: whitesmoke; padding-left: 50px">
-                <br>
-                <hr style="width: 100%;">
-                <br><br><br>
+            <div id="body" style="height: 1500px; background-color: whitesmoke; padding-left: 50px">
+          
+                <br><br>
             <div class="list_contest" style="height: 500px">
                     <h1> DANH SÁCH CONTEST </h1>
                     <br><br><br>
@@ -103,20 +102,23 @@
                             }
                             response.json().then(function (data) {
                                 myObj = data;
-
-                                var txt = "<tr>" +
-                                        "<td > NAME </td>" +
-                                        "<td >START</td>" +
-                                        "<td >LENGTH</td>" +
-                                        "<td >STATE</td>" +
-                                        "<td >ENTER</td>" +
-                                        "</tr>";
+                                var txt = "<thead><tr>" +
+                                        "<th class='_w30'> NAME </th>" +
+                                        "<th class='_w30'>START</th>" +
+                                        "<th class='_w10'>LENGTH</th>" +
+                                        "<th class='_w15'>STATE</th>" +
+                                        "<th class='_w15'>ENTER</th>" +
+                                        "</tr></thead>";
                                 for (x in myObj) {
                                     txt += "<tr>" +
                                             "<td>" + myObj[x].ten + "</td>" +
                                             "<td>" + new Date(myObj[x].thoiDiemBatDau) + "</td>" +
-                                            "<td>" + myObj[x].thoiGian + "</td>" +
-                                            "<td>" + myObj[x].trangThai + "</td>";
+                                            "<td>" + myObj[x].thoiGian + " hours"+ "</td>";
+                                    if(myObj[x].trangThai=="Đang diễn ra"){
+                                        txt += "<td class='green'>" + myObj[x].trangThai + "</td>";
+                                    }else{
+                                        txt += "<td>" + myObj[x].trangThai + "</td>";
+                                    }
                                     if (myObj[x].trangThai == "Đã kết thúc" || myObj[x].trangThai == "Đang diễn ra") {
                                         txt += "<td><a href=\"contest.jsp?maContest=" + myObj[x].ma + "\"> tham gia </a></td>" +
                                                 "</tr>";
