@@ -72,9 +72,9 @@
                 </div>
             </div>
             <div id="body" style="height: 1500px; background-color: whitesmoke; padding-left: 50px">
-           
+
                 <br>
-                
+
                 <div style="width: 90%; margin-left: 50px">
                     <h1> SCORE BOARD </h1>
                     <br>
@@ -109,34 +109,54 @@
             <script src="Views/script/detectSQLinjection.js"></script>
     </body>
     <script>
-            fetch('../../scoreboard?maContest=<%=request.getParameter("maContest")%>')
-                    .then(
-                            function (response) {
-                                if (response.status !== 200) {
-                                    console.log('lỗi: ' + response.status);
-                                    return;
-                                }
-                                response.json().then(function (data) {
-                                    var txt = "<thead><tr>" +
-                                            "<th class='_w10'> Rank </th>" +
-                                            "<th class='_w25'>Username</th>" +
-                                            "<th class='_w15'>Score</th>" +
-                                            "</tr></thead>";
-                                    tmp = data.listRsB;
-                                    for (x in tmp) {
-                                        txt += "<tr>" +
-                                                "<td>" + tmp[x].rank + "</td>" +
-                                                "<td>" + tmp[x].taiKhoan.username + "</td>" +
-                                                "<td>" + tmp[x].score + "</td>" +
-                                                "</tr>";
-                                    }
-                                    document.getElementById("table_score_board_contend").innerHTML = txt;
-                                });
+        fetch('../../scoreboard?maContest=<%=request.getParameter("maContest")%>')
+                .then(
+                        function (response) {
+                            if (response.status !== 200) {
+                                console.log('lỗi: ' + response.status);
+                                return;
                             }
-                    )
-                    .catch(function (err) {
-                        console.log('Fetch Error :-S', err);
-                    });
+                            response.json().then(function (data) {
+                                var txt = "<thead><tr>" +
+                                        "<th class='_w10'> Rank </th>" +
+                                        "<th class='_w25'>Username</th>" +
+                                        "<th class='_w15'>Score</th>";
+                                tmp = data.listRsB[0].contest.listProblem;
+                                for (x in tmp) {
+                                    txt += "<th>" +
+                                            "<a href=\"problem.jsp?maBaiTap=" +
+                                            tmp[x].baiTap.ma + "&maContest=" + '<%=request.getParameter("maContest")%>' + "\">"+
+                                            tmp[x].baiTap.ten + " <" + tmp[x].diem + "> "+
+                                            "</a></th>";
+                                }
+                                txt += "</tr></thead>";
+                                tmp = data.listRsB;
+                                for (x in tmp) {
+                                    txt += "<tr>" +
+                                            "<td>" + tmp[x].rank + "</td>" +
+                                            "<td>" + tmp[x].taiKhoan.username + "</td>" +
+                                            "<td>" + tmp[x].score + "</td>";
+                                    q = tmp[x].listRs;
+                                    for (u in q) {
+                                        if(q[u].trangThai=="Chưa làm"){
+                                            txt += "<td class='cyan'>" + q[u].trangThai+ "</td>";
+                                        }else{
+                                            if(q[u].trangThai=="Đang làm"){
+                                                txt += "<td class='red'>" + q[u].trangThai+ "</td>";
+                                            }else{
+                                                txt += "<td class='green'>" + q[u].trangThai+ "</td>";
+                                            }
+                                        }
+                                    }
+                                    txt += "</tr>";
+                                }
+                                document.getElementById("table_score_board_contend").innerHTML = txt;
+                            });
+                        }
+                )
+                .catch(function (err) {
+                    console.log('Fetch Error :-S', err);
+                });
     </script>
 </html>
 

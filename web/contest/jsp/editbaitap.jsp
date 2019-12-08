@@ -114,6 +114,7 @@
        
         function submit(){
             // check sql injection
+            
             var data = {
                     ma: document.getElementById("txtma").value,
                     ten: document.getElementById("txtten").value,

@@ -96,16 +96,6 @@
 
         <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
     </head>
-    <body>
-        <%--<jsp:include page="div_header.jsp"></jsp:include>--%>
-        <div class="list_contest">
-            <h1 id="thongbao"> Đang yêu cầu đăng ký </h1>
-            <h1> Đếm ngược </h1>
-            <h1 id="clock"></h1>
-        </div>
-        <%--<jsp:include page="div_footer.jsp"></jsp:include>--%>
-
-    </body>
     <script>
         var data = {
                     Username: '<%=session.getAttribute("username")%>',
@@ -169,13 +159,13 @@
                     console.log('Fetch Error :-S', err);
                 });
         function demNguoc(){
-            if(s===-1){
+            if(s<=-1){
                 s=59;
                 m = m-1;
-                if(m===-1){
+                if(m<=-1){
                     m=59;
                     h = h-1;
-                    if(h===-1){
+                    if(h<=-1){
                         clearTimeout(false);
                         window.location.href = "contest.jsp?maContest=<%=request.getParameter("maContest")%>";
                     }

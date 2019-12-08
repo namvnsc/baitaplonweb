@@ -89,6 +89,7 @@ public class SignUpServlet extends HttpServlet {
             String encoded = Base64.getEncoder().encodeToString(hash);
             
             TaiKhoan a = new TaiKhoan(name, encoded, hoten, email, sdt);
+            a.setRole("user");
             TaiKhoanDAOImpl dao = new TaiKhoanDAOImpl();
             if (!dao.checkUsername(name)) {
                 dao.insertAccount(a);

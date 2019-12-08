@@ -117,7 +117,12 @@
                                     if(myObj[x].trangThai=="Đang diễn ra"){
                                         txt += "<td class='green'>" + myObj[x].trangThai + "</td>";
                                     }else{
-                                        txt += "<td>" + myObj[x].trangThai + "</td>";
+                                            if(myObj[x].trangThai=="Chưa diễn ra"){
+                                            txt += "<td class='cyan'>" + myObj[x].trangThai + "</td>";
+                                        }else{
+                                            txt += "<td>" + myObj[x].trangThai + "</td>";
+                                        }
+                                        
                                     }
                                     if (myObj[x].trangThai == "Đã kết thúc" || myObj[x].trangThai == "Đang diễn ra") {
                                         txt += "<td><a href=\"contest.jsp?maContest=" + myObj[x].ma + "&username="+'<%=(String)session.getAttribute("username")%>'+"\"> tham gia </a></td>" +

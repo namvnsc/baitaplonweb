@@ -101,7 +101,7 @@ public class Jugde {
                 line = rDapAn.readLine();
                 line1 = rDauRa.readLine();
                 if (line != null && line1 != null) {
-                    if (!line.equals(line1)) {
+                    if (!line.trim().equals(line1.trim())) {
                         rDapAn.close();
                         rDapAn.close();
                         out.close();

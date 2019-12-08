@@ -69,7 +69,7 @@ CREATE TABLE `bai_tap` (
 
 LOCK TABLES `bai_tap` WRITE;
 /*!40000 ALTER TABLE `bai_tap` DISABLE KEYS */;
-INSERT INTO `bai_tap` VALUES ('b1','Cộng 2 số nguyên','Cho 2 số nguyên a, b. Viết chương trình c/c++ trả về tổng a+b.\ninput:  \nT - số bộ test, T <= 100\nT dòng tiếp theo chứa 2 số a, b\noutput:\nT dòng, mỗi dòng chứa kết quả\n<giới hạn thời gian 1s>',NULL,'1 3 5','8',1,NULL),('b2','Trừ 2 số nguyên','Cho 2 số nguyên a, b. Viết chương trình c/c++ trả về hiệu a-b.',NULL,'1 3 5','-2',1,NULL),('b3','Nhân 2 số nguyên','Cho 2 số nguyên a, b. Viết chương trình c/c++ trả về tích a*b.',NULL,'1 3 5','15',1,NULL),('b4','Chia 2 số nguyên','Cho 2 số nguyên a, b. Viết chương trình c/c++ trả về thương a/b.',NULL,'1 9 3','3',1,NULL);
+INSERT INTO `bai_tap` VALUES ('b1','Cộng 2 số nguyên','Cho 2 số nguyên a, b. Viết chương trình c/c++ trả về tổng a+b.\ninput:  \nT - số bộ test, T <= 100\nT dòng tiếp theo chứa 2 số a, b\noutput:\nT dòng, mỗi dòng chứa kết quả\n<giới hạn thời gian 1s>',NULL,'1 3 5','8',1,NULL),('b10','Chặt nhị phân','Cho mảng a có n phần tử, n lẻ; tìm phần tử đứng giữa sau khi đã sắp xếp dãy theo thứ tự tăng dần.\nInput:\nn - số phần tử của mảng n<=1e6;\na1 a2 ... an - các phần tử trong mảng\nOutput:\nans - kết quả yêu cầu\n\nVí dụ:\nInput:\n3\n3 1 5\nOutput:\n3',NULL,' 5\r  1 3 2 4 5','3',0.5,NULL),('b2','Trừ 2 số nguyên','Cho 2 số nguyên a, b. Viết chương trình c/c++ trả về hiệu a-b.',NULL,'1 3 5','-2',1,NULL),('b20','Tìm kiếm','Cho mảng a có n phần tử, tìm kiếm trong mảng có tồn tại giá trị x hay không?\r Input:\r - T số bộ test\r - mỗi bộ test dạng:\r 	- n x số lượng phần tử mảng, giá trị x cần tìm\r 	- n số ai là giá trị các phần tử trong mảng\r Output:\r - Yes nếu có, No nếu không, ghi kết quả trên 1 dòng cách nhau bởi 1 dấu cách',NULL,'1 5 1 2 5 4 3','Yes\r ',1,NULL),('b3','Nhân 2 số nguyên','Cho 2 số nguyên a, b. Viết chương trình c/c++ trả về tích a*b.',NULL,'1 3 5','15',1,NULL),('b4','Chia 2 số nguyên','Cho 2 số nguyên a, b. Viết chương trình c/c++ trả về thương a/b.',NULL,'1 9 3','3',1,NULL);
 /*!40000 ALTER TABLE `bai_tap` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,7 +123,7 @@ CREATE TABLE `contest` (
 
 LOCK TABLES `contest` WRITE;
 /*!40000 ALTER TABLE `contest` DISABLE KEYS */;
-INSERT INTO `contest` VALUES ('MD','Mở đầu ','2019-11-20 20:00:00',1),('SPRING','Cuối đông','2019-11-29 20:00:00',2);
+INSERT INTO `contest` VALUES ('a','a','2019-12-07 15:23:00',0.25),('abc','acb','2019-12-07 16:05:00',0.25),('adafd','1faf','2019-12-07 15:25:00',0.25),('lehoa','hoa','1970-01-01 07:00:00',0.25),('ma','ten','1970-01-01 07:00:00',0.25),('MD','Mở đầu ','2019-11-20 20:00:00',1),('mmm','aa','2019-07-12 16:00:00',0.25),('sd','adsfa','2019-12-07 15:50:00',0.25),('t','Kiểm tra','2019-12-08 08:15:00',0.2),('test','tmp','2019-12-06 13:19:00',0.25),('tmp','tmp','2019-12-06 04:56:00',0.25),('u','u','2019-12-08 09:12:00',0.2),('x','x','2019-12-08 09:00:00',0.2);
 /*!40000 ALTER TABLE `contest` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,7 +253,7 @@ CREATE TABLE `problem` (
   `Ma_Contest` varchar(50) NOT NULL,
   `So_Thu_Tu` int(11) NOT NULL,
   `Ma_Bai_Tap` varchar(50) DEFAULT NULL,
-  `diem` int(11) DEFAULT NULL,
+  `Diem` int(11) DEFAULT NULL,
   PRIMARY KEY (`Ma_Contest`,`So_Thu_Tu`),
   KEY `qqq_idx` (`Ma_Bai_Tap`),
   CONSTRAINT `qq` FOREIGN KEY (`Ma_Contest`) REFERENCES `contest` (`Ma`),
@@ -267,7 +267,7 @@ CREATE TABLE `problem` (
 
 LOCK TABLES `problem` WRITE;
 /*!40000 ALTER TABLE `problem` DISABLE KEYS */;
-INSERT INTO `problem` VALUES ('MD',1,'b1',100),('MD',2,'b2',100),('MD',3,'b3',100),('MD',4,'b4',100),('SPRING',1,'b1',50);
+INSERT INTO `problem` VALUES ('a',1,'b10 ',50),('a',2,'b4 ',50),('abc',1,'b1 ',50),('adafd',1,'b3 ',50),('adafd',2,'b4 ',100),('lehoa',1,'b1 ',50),('ma',1,'b2 ',50),('MD',1,'b1',100),('MD',2,'b2',100),('MD',3,'b3',100),('MD',4,'b4',100),('mmm',1,'b1 ',50),('sd',1,'b1 ',50),('sd',2,'b10 ',50),('t',1,'b20 ',150),('t',2,'b3 ',200),('test',1,'b10 ',50),('test',2,'b3 ',50),('tmp',1,'b10 ',50),('tmp',2,'b3 ',50),('u',1,'b4 ',50),('x',1,'b3 ',50);
 /*!40000 ALTER TABLE `problem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -288,7 +288,7 @@ CREATE TABLE `register` (
   KEY `rr_idx` (`Username`),
   CONSTRAINT `r` FOREIGN KEY (`Ma_Contest`) REFERENCES `contest` (`Ma`),
   CONSTRAINT `rr` FOREIGN KEY (`Username`) REFERENCES `tai_khoan` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -297,7 +297,7 @@ CREATE TABLE `register` (
 
 LOCK TABLES `register` WRITE;
 /*!40000 ALTER TABLE `register` DISABLE KEYS */;
-INSERT INTO `register` VALUES (1,'a','MD',NULL),(4,'b','MD',NULL),(5,'c','MD',NULL),(6,'d','MD',NULL),(7,'a','SPRING',NULL);
+INSERT INTO `register` VALUES (14,'a','test',NULL),(15,'a','a',NULL),(16,'a','adafd',NULL),(17,'vnsc','sd',NULL),(18,'a','sd',NULL),(19,'vnsc','abc',NULL),(20,'a','t',NULL),(21,'a','x',NULL),(22,'a','u',NULL);
 /*!40000 ALTER TABLE `register` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -320,7 +320,7 @@ CREATE TABLE `submission` (
   KEY `tt_idx` (`Username`),
   CONSTRAINT `tt` FOREIGN KEY (`Username`) REFERENCES `tai_khoan` (`username`),
   CONSTRAINT `y` FOREIGN KEY (`Ma_Bai_Tap`) REFERENCES `bai_tap` (`Ma`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -329,7 +329,6 @@ CREATE TABLE `submission` (
 
 LOCK TABLES `submission` WRITE;
 /*!40000 ALTER TABLE `submission` DISABLE KEYS */;
-INSERT INTO `submission` VALUES (36,'a','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Wrong','2019-11-27 21:35:16'),(37,'b','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Compiler Error','2019-11-27 21:36:48'),(38,'c','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Wrong','2019-11-27 21:53:37'),(39,'d','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Wrong','2019-11-27 21:56:14'),(40,'a','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Wrong','2019-11-27 22:40:34'),(41,'b','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Wrong','2019-11-27 23:29:04'),(42,'c','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Wrong','2019-11-28 00:37:26'),(43,'d','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Compiler Error','2019-11-28 00:38:52'),(51,'a','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Wrong','2019-11-28 01:52:23'),(52,'b','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Wrong','2019-11-28 01:52:45'),(53,'c','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Wrong','2019-11-28 01:52:46'),(54,'d','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','ErrorE','2019-11-28 01:52:56'),(55,'a','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Wrong','2019-11-28 01:52:56'),(56,'b','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Wrong','2019-11-28 02:08:37'),(57,'c','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Wrong','2019-11-28 02:10:16'),(58,'d','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Wrong','2019-11-28 02:10:17'),(59,'a','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Wrong','2019-11-28 02:13:08'),(60,'b','b1','#include <bits/stdc++.h>\nusing namespace std;\n\n\nint main(){\n   int t;\n   cin >> t;\n   while(t--){\n      int a, b;\n      cin >> a >> b;\n      cout << a+b << endl;\n   }\n   return 0;\n}','Accept','2019-11-28 06:08:42'),(61,'a','b1','#include <bits/stdc++.h>\nusing namespace std;\n\n\nint main(){\n   int t;\n   cin >> t;\n   while(t--){\n      int a, b;\n      cin >> a >> b;\n      cout << a+b << endl;\n   }\n   return 0;\n}','Accept','2019-11-28 06:09:29'),(62,'d','b2','#include <bits/stdc++.h>\nint main()\n{\n   int t;\n   cin >> t;\n   while(t--){\n        int a, b; cin >> a >> b; cout << a-b << endl;\n   }\n   return 0;\n}\n                ','Compiler Error','2019-11-28 06:22:52'),(63,'c','b2','#include <bits/stdc++.h>\nusing namespace std;\nint main()\n{\n   int t;\n   cin >> t;\n   while(t--){\n        int a, b; cin >> a >> b; cout << a-b << endl;\n   }\n   return 0;\n}\n                ','Accept','2019-11-28 06:24:05'),(64,'d','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Wrong','2019-11-28 08:09:58'),(65,'a','b1','#include <stdio.h>\nint main()\n{\n   //do your code here\n   return 0;\n}\n                ','Wrong','2019-11-28 08:11:35'),(66,'a','b4','#include <bits/stdc++.h>\nusing namespace std;\n\n\nint main(){\nint t;\ncin >> t;\nwhile(t--){\nint a, b;\ncin >> a >> b;\ncout << a/b << endl;\n}\nreturn 0;\n}','Accept','2019-11-28 19:35:08'),(67,'a','b4','#include <bits/stdc++.h>\nusing namespace std;\n\n\nint main(){\nint t;\ncin >> t;\nwhile(t--){\nint a, b;\ncin >> a >> b;\ncout << a/b << endl;\n}\nreturn 0;\n}','Accept','2019-11-28 19:35:11'),(68,'a','b3','#include using namespace std; int main(){ int t; cin >> t; while(t--){ int a, b; cin >> a >> b; cout << a*b << endl; } return 0; }','Compiler Error','2019-11-28 19:36:41'),(69,'a','b3','#include <bits/stdc++.h>\nusing namespace std; \nint main(){ int t; cin >> t; while(t--){ int a, b; cin >> a >> b; cout << a*b << endl; } return 0; }','Accept','2019-11-28 19:37:12'),(70,'a','b3','#include <bits/stdc++.h>\nusing namespace std; \nint main(){ int t; cin >> t; while(t--){ int a, b; cin >> a >> b; cout << a*b << endl; } return 0; }','Accept','2019-11-28 19:38:27');
 /*!40000 ALTER TABLE `submission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -348,6 +347,7 @@ CREATE TABLE `tai_khoan` (
   `email` varchar(200) DEFAULT NULL,
   `sodienthoai` varchar(11) DEFAULT NULL,
   `avatar` varchar(200) DEFAULT NULL,
+  `role` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -358,7 +358,7 @@ CREATE TABLE `tai_khoan` (
 
 LOCK TABLES `tai_khoan` WRITE;
 /*!40000 ALTER TABLE `tai_khoan` DISABLE KEYS */;
-INSERT INTO `tai_khoan` VALUES (93405,'a','a4ayc/80/OGda4BO/1o/V0etpOqiLx1JwB5S3beHW0s=','x','o','0',NULL),(79029,'b','a4ayc/80/OGda4BO/1o/V0etpOqiLx1JwB5S3beHW0s=','1','vdh@gmail.com','1234567890',NULL),(56094,'c','a4ayc/80/OGda4BO/1o/V0etpOqiLx1JwB5S3beHW0s=','d','vnsckdh@gmail.com','1234567890',NULL),(69473,'d','a4ayc/80/OGda4BO/1o/V0etpOqiLx1JwB5S3beHW0s=','nam','vnsckdh@gmail.com','1234567890',NULL);
+INSERT INTO `tai_khoan` VALUES (93405,'a','a4ayc/80/OGda4BO/1o/V0etpOqiLx1JwB5S3beHW0s=','x','o','0',NULL,'user'),(79029,'b','a4ayc/80/OGda4BO/1o/V0etpOqiLx1JwB5S3beHW0s=','1','vdh@gmail.com','1234567890',NULL,'user'),(56094,'c','a4ayc/80/OGda4BO/1o/V0etpOqiLx1JwB5S3beHW0s=','d','vnsckdh@gmail.com','1234567890',NULL,'user'),(69473,'d','a4ayc/80/OGda4BO/1o/V0etpOqiLx1JwB5S3beHW0s=','nam','vnsckdh@gmail.com','1234567890',NULL,'user'),(12345,'vnsc','a4ayc/80/OGda4BO/1o/V0etpOqiLx1JwB5S3beHW0s=',NULL,NULL,NULL,NULL,'admin');
 /*!40000 ALTER TABLE `tai_khoan` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -371,4 +371,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-29  9:56:05
+-- Dump completed on 2019-12-08  9:14:06
