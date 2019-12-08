@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
+        <title>E-Learning PTIT</title>
         <link rel="stylesheet" href="css/loginstyle.css">
         <link rel="stylesheet" href="css/basestyle.css">
     </head>
@@ -17,10 +17,10 @@
                 <div id="headerLH">
                     <div class="DivMenu">
                    
-                        <a href="TinTuc.jsp" class="button-back-next1"><b>News</b></a>
-                        <a href="../contest/jsp/list_contest.jsp" class="button-back-next1"><b>List Contest</b></a>
-                        <a href="khoahoc.jsp" class="button-back-next1"><b>Courses</b></a>
-                        <a href="login.jsp" class="button-back-next1"><b>Home Page</b></a>
+                        <a href="TinTuc.jsp" class="button-back-next1"><b>Tin tức</b></a>
+                        <a href="../contest/jsp/list_contest.jsp" class="button-back-next1"><b>Luyện tập</b></a>
+                        <a href="khoahoc.jsp" class="button-back-next1"><b>Khóa học</b></a>
+                        <a href="login.jsp" class="button-back-next1"><b>Trang chủ</b></a>
                     </div> 
                 </div>
                 <div id="headerLH1">
@@ -28,7 +28,7 @@
                     <% if (session.getAttribute("username") != null) {%>
                         <div id="headerHoten">
                             <br>
-                            <span style="font-size: 15px">Hi, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
+                            <span style="font-size: 15px">Xin chào, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
                         </div>
                         <div id="headerLuaCHon">
                             <a href="logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;"><b>Đăng Xuất</b></a>
@@ -67,7 +67,7 @@
                             <button><img class="contactIcon1" src="resources/icon1.png"></button>
                         </div>
                         <div id="oneright1">
-                            <h1>Courses</h1>
+                            <h1>Khóa học</h1>
 
                             <h3>Các khóa học lập trình từ cơ bản đến nâng cao,</h3>
                             <h3>cấu trúc dữ liệu, giải thuật...</h3>
@@ -83,7 +83,7 @@
                             <button><img class="contactIcon1" src="resources/icon2.jpg"></button>
                         </div>
                         <div id="oneright1">
-                            <h1>List Contest</h1>
+                            <h1>Luyện tập</h1>
                             <h3>Các contest hàng tuần, hàng tháng</h3>
                             <h3>Bảng rank, điểm số, lịch sử các lần submit...</h3>
                         </div>
@@ -98,7 +98,7 @@
                             <button><img class="contactIcon1" src="resources/cion3.png"></button>
                         </div>
                         <div id="oneright1">
-                            <h1>News</h1>
+                            <h1>Tin tức</h1>
                             <h3>Các tin tức liên quan đến đời sống, xã hội</h3>
                             <h3>Các cuộc thi công nghệ</h3>
                         </div>
@@ -123,7 +123,7 @@
                         <div id="center2" ></div>
                         <div class="center3">
                             <div id="center21" >
-                                <img class="contactIcon1" style="width: 100%; height: 100%" src="resources/ltC.jpg">
+                                <a href="hocCcoban.jsp" style="color: black; text-decoration: none"><img class="contactIcon1" style="width: 100%; height: 100%" src="resources/ltC.jpg"></a>
                             </div>
                             <div id="center22" >
                                 <h2>Lập Trình C</h2>

@@ -17,7 +17,7 @@
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Học C cơ bản</title>
+        <title>E-Learning PTIT</title>
         <link rel="stylesheet" href="css/hocCcobanstyle.css">
         <link rel="stylesheet" href="css/basestyle.css">
         <link href="css/loginstyle.css" rel="stylesheet" type="text/css"/>
@@ -58,10 +58,10 @@
                 <div id="headerLH">
                     <div class="DivMenu">
                    
-                        <a href="TinTuc.jsp" class="button-back-next1"><b>News</b></a>
-                        <a href="../contest/jsp/list_contest.jsp" class="button-back-next1"><b>List Contest</b></a>
-                        <a href="khoahoc.jsp" class="button-back-next1"><b>Courses</b></a>
-                        <a href="login.jsp" class="button-back-next1"><b>Home Page</b></a>
+                        <a href="TinTuc.jsp" class="button-back-next1"><b>Tin tức</b></a>
+                        <a href="../contest/jsp/list_contest.jsp" class="button-back-next1"><b>Luyện tập</b></a>
+                        <a href="khoahoc.jsp" class="button-back-next1"><b>Khóa học</b></a>
+                        <a href="login.jsp" class="button-back-next1"><b>Trang chủ</b></a>
                     </div> 
                 </div>
                 <div id="headerLH1">
