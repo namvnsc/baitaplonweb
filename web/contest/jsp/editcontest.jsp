@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="../../Views/css/basestyle.css">
         <link rel="stylesheet" href="../../Views/css/tintuc.css">
         <link rel="stylesheet" href="../css/table.css" type="text/css">
-        <link rel="icon" href="resources/e-learning1-1.png">
+        <link rel="icon" href="../../Views/resources/e-learning1-1.png">
 
     </head>
     <body>
