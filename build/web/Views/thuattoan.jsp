@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="css/basestyle.css">
         <link href="css/loginstyle.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="css/editorstyle.css">
+        <link rel="icon" href="resources/e-learning1-1.png">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <% String ma = request.getParameter("ma");
             List<BaiHoc> baiHocs = new BaiHocDAOImpl().findByMaKhoaHoc("KH01");

@@ -13,6 +13,7 @@
         <title>E-Learning PTIT</title>
         <link rel="stylesheet" href="css/basestyle.css">
         <link rel="stylesheet" href="css/mainpage.css">
+        <link rel="icon" href="resources/e-learning1-1.png">
     </head>
     <body>
         <div id="all">

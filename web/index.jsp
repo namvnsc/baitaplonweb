@@ -19,10 +19,10 @@
                 <div id="headerone22">
                     <div class="DivMenu">
                        
-                        <a href="Views/TinTuc.jsp" class="button-back-next1"><b>News</b></a>
-                        <a href="contest/jsp/list_contest.jsp" class="button-back-next1"><b>List Contest</b></a>
-                        <a href="khoahoc.jsp" class="button-back-next1"><b>Courses</b></a>
-                        <a href="Views/login.jsp" class="button-back-next1"><b>Home Page</b></a>
+                        <a href="Views/TinTuc.jsp" class="button-back-next1"><b>Tin tức</b></a>
+                        <a href="contest/jsp/list_contest.jsp" class="button-back-next1"><b>Luyện tập</b></a>
+                        <a href="khoahoc.jsp" class="button-back-next1"><b>Khóa học</b></a>
+                        <a href="Views/login.jsp" class="button-back-next1"><b>Trang chủ</b></a>
                     </div> 
                 </div>
                 <div id="headerone2">

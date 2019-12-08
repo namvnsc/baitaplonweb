@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="../../Views/css/tintuc.css">
         <link href="../css/problem.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="../css/list_contest.css" type="text/css">
+        <link rel="icon" href="resources/e-learning1-1.png">
     </head>
     <body>
         <div id="all1" style="height: 1500px;">

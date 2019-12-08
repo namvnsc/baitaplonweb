@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="css/basestyle.css">
         <link rel="stylesheet" href="css/loginstyle.css">
         <link rel="stylesheet" href="css/tintuc.css">
+        <link rel="icon" href="resources/e-learning1-1.png">
     </head>
     <body>
         <div id="all">
