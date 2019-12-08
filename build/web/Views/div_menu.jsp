@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/basestyle.css">
+        <link rel="icon" href="resources/e-learning1-1.png">
     </head>
     <body>
         <div class="DivMenu">
