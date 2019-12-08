@@ -76,7 +76,7 @@
                     <h1 id="tenbaitap" style="font-family: inherit; text-align: center; "></h1>
                     <pre id="debai" style="font-family: inherit; font-size: 20px; border-radius: 15px;  background-color: #CDC8B1; padding: 10px"></pre>
                     <h3>Online Code C/C++ Editor</h3>
-                    <textarea id="CodeEditorArea" style="width: 100%" id="input">
+                    <textarea id="CodeEditorArea" style="width: 100%" id="input" onkeydown="insertTab(this, event);">
 #include <stdio.h>
 int main()
 {
@@ -116,6 +116,7 @@ int main()
             </div>
 
             <script src="Views/script/detectSQLinjection.js"></script>
+            <script src="../../Views/script/executecode.js"></script>
     </body>
     <script>
                     function submitCode() {

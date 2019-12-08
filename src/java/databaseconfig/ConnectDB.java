@@ -37,7 +37,7 @@ public class ConnectDB {
         if (connect == null) {
             String url = "jdbc:mysql://localhost:3306/web";
             try {
-                connect = DriverManager.getConnection(url, "root", "doanxem1603");
+                connect = DriverManager.getConnection(url, "root", "123123a@");
             } catch (SQLException e) {
                 try {
                     throw new Exception(e.getMessage() + "Connect failed to database ....");
