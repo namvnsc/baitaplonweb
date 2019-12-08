@@ -4,7 +4,7 @@
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>List contest</title>
+        <title>E-Learning PTIT</title>
         <link rel="stylesheet" href="../../Views/css/loginstyle.css">
         <link rel="stylesheet" href="../../Views/css/basestyle.css">
         <link rel="stylesheet" href="../../Views/css/tintuc.css">
@@ -21,10 +21,10 @@
                 <div id="headerLH" style="margin: 0px">
                     <div class="DivMenu">
                         
-                        <a href="../../Views/TinTuc.jsp" class="button-back-next1"><b>News</b></a>
-                        <a href="list_contest.jsp" class="button-back-next1"><b>List Contest</b></a>
-                        <a href="../../Views/khoahoc.jsp" class="button-back-next1"><b>Courses</b></a>
-                        <a href="../../Views/login.jsp" class="button-back-next1"><b>Home Page</b></a>
+                        <a href="../../Views/TinTuc.jsp" class="button-back-next1"><b>Tin tức</b></a>
+                        <a href="list_contest.jsp" class="button-back-next1"><b>Luyện tập</b></a>
+                        <a href="../../Views/khoahoc.jsp" class="button-back-next1"><b>Khóa học</b></a>
+                        <a href="../../Views/login.jsp" class="button-back-next1"><b>Trang chủ</b></a>
                     </div> 
                 </div>
                 <div id="headerLH1">
@@ -32,7 +32,7 @@
                     <% if (session.getAttribute("username") != null) {%>
                         <div id="headerHoten">
                             <br>
-                            <span style="font-size: 15px">Hi, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
+                            <span style="font-size: 15px">Xin chào, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
                         </div>
                         <div id="headerLuaCHon">
                             <a href="../../Views/logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;"><b>Đăng Xuất</b></a>
@@ -53,7 +53,7 @@
             </div>
             
             <div id="Theader" style="height: 400px">
-                <h1 style="padding: 100px 0px 0px 400px;  margin: 0; font-size: 150px; font-family: inherit;"> CONTEST</h1>
+                <h1 style="padding: 100px 0px 0px 400px;  margin: 0; font-size: 150px; font-family: inherit;"> Luyện tập</h1>
                 <i style="padding-left: 200px; font-size: 50px; font-family: inherit;">Những contest hàng tuần, hàng tháng liên tục được cập nhật</i>
                 
             </div>      
@@ -103,11 +103,11 @@
                             response.json().then(function (data) {
                                 myObj = data;
                                 var txt = "<thead><tr>" +
-                                        "<th class='_w30'> NAME </th>" +
-                                        "<th class='_w30'>START</th>" +
-                                        "<th class='_w10'>LENGTH</th>" +
-                                        "<th class='_w15'>STATE</th>" +
-                                        "<th class='_w15'>ENTER</th>" +
+                                        "<th class='_w30'> Tên </th>" +
+                                        "<th class='_w30'>Thời gian bắt đầu</th>" +
+                                        "<th class='_w10'>Giới hạn</th>" +
+                                        "<th class='_w15'>Trạng thái</th>" +
+                                        "<th class='_w15'>Đăng ký</th>" +
                                         "</tr></thead>";
                                 for (x in myObj) {
                                     txt += "<tr>" +

@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
+        <title>E-Learning PTIT</title>
         <link rel="stylesheet" href="css/loginstyle.css">
         <link rel="stylesheet" href="css/basestyle.css">
         <link rel="stylesheet" href="css/tintuc.css">
@@ -18,10 +18,10 @@
                 <div id="headerLH">
                     <div class="DivMenu">
                        
-                        <a href="TinTuc.jsp" class="button-back-next1">News</a>
-                        <a href="../contest/jsp/contest.jsp" class="button-back-next1">List Contest</a>
-                        <a href="" class="button-back-next1">Courses</a>
-                        <a href="login.jsp" class="button-back-next1">Home Page</a>
+                        <a href="TinTuc.jsp" class="button-back-next1">Tin tức</a>
+                        <a href="../contest/jsp/contest.jsp" class="button-back-next1">Luyện tập</a>
+                        <a href="" class="button-back-next1">Khóa học</a>
+                        <a href="login.jsp" class="button-back-next1">Trang chủ</a>
                     </div> 
                 </div>
                 <div id="headerLH1">
@@ -29,7 +29,7 @@
                     <% if (session.getAttribute("username") != null) {%>
                         <div id="headerHoten">
                             <br>
-                            <span style="font-size: 15px">Hi, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
+                            <span style="font-size: 15px">Xin chào, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
                         </div>
                         <div id="headerLuaCHon">
                             <a href="logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;">Đăng Xuất</a>
@@ -51,7 +51,7 @@
             </div>
             
             <div id="Theader">
-                <h1 style="padding: 100px 0px 0px 450px;  margin: 0; font-size: 200px; font-family: inherit;"> NEWS</h1>
+                <h1 style="padding: 100px 0px 0px 450px;  margin: 0; font-size: 200px; font-family: inherit;"> Tin tức</h1>
                 <i style="padding-left: 300px; font-size: 50px; font-family: inherit;">Các tin tức mới nhất được cấp nhật tại đây</i>
                 
             </div>       

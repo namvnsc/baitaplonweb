@@ -4,7 +4,7 @@
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>History submission</title>
+        <title>E-Learning PTIT</title>
         <link rel="stylesheet" href="../../Views/css/loginstyle.css">
         <link rel="stylesheet" href="../../Views/css/basestyle.css">
         <link rel="stylesheet" href="../../Views/css/tintuc.css">
@@ -20,10 +20,10 @@
                 <div id="headerLH" style="margin: 0px">
                     <div class="DivMenu">
 
-                        <a href="../../Views/TinTuc.jsp" class="button-back-next1"><b>News</b></a>
-                        <a href="list_contest.jsp" class="button-back-next1"><b>List Contest</b></a>
-                        <a href="../../Views/khoahoc.jsp" class="button-back-next1"><b>Courses</b></a>
-                        <a href="../../Views/login.jsp" class="button-back-next1"><b>Home Page</b></a>
+                        <a href="../../Views/TinTuc.jsp" class="button-back-next1"><b>Tin tức</b></a>
+                        <a href="list_contest.jsp" class="button-back-next1"><b>Luyện tập</b></a>
+                        <a href="../../Views/khoahoc.jsp" class="button-back-next1"><b>Khóa học</b></a>
+                        <a href="../../Views/login.jsp" class="button-back-next1"><b>Trang chủ</b></a>
                     </div> 
                 </div>
                 <div id="headerLH1">
@@ -31,7 +31,7 @@
                     <% if (session.getAttribute("username") != null) {%>
                     <div id="headerHoten">
                         <br>
-                        <span style="font-size: 15px">Hi, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
+                        <span style="font-size: 15px">Xin chào, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
                     </div>
                     <div id="headerLuaCHon">
                         <a href="../../Views/logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;"><b>Đăng Xuất</b></a>
@@ -65,9 +65,9 @@
                 <div id="mm1"></div>
                 <div id="mm2">
                     <div class="DivMenu" style="border: px solid green;" > 
-                        <a href="history_submission.jsp?username=<%=session.getAttribute("username")%>&maContest=<%=request.getParameter("maContest")%>" class="button-back-next1" style="text-decoration: none; color: black; padding: 15px; text"><b style="font-family: inherit; font-size: 20px">History submission</b></a>
-                        <a href="score_board.jsp?maContest=<%=request.getParameter("maContest")%>" style="text-decoration: none; color: black; padding: 15px" class="button-back-next1"><b style="font-family: inherit; font-size: 20px">Score Board</b></a>
-                        <a href="contest.jsp?maContest=<%=request.getParameter("maContest")%>" style="text-decoration: none; color: black; padding: 15px" class="button-back-next1"><b style="font-family: inherit; font-size: 20px">List Problem</b></a>
+                        <a href="history_submission.jsp?username=<%=session.getAttribute("username")%>&maContest=<%=request.getParameter("maContest")%>" class="button-back-next1" style="text-decoration: none; color: black; padding: 15px; text"><b style="font-family: inherit; font-size: 20px">Lịch sử làm bài</b></a>
+                        <a href="score_board.jsp?maContest=<%=request.getParameter("maContest")%>" style="text-decoration: none; color: black; padding: 15px" class="button-back-next1"><b style="font-family: inherit; font-size: 20px">Bảng điểm</b></a>
+                        <a href="contest.jsp?maContest=<%=request.getParameter("maContest")%>" style="text-decoration: none; color: black; padding: 15px" class="button-back-next1"><b style="font-family: inherit; font-size: 20px">Danh sách bài tập</b></a>
 
                     </div>
                 </div>

@@ -4,7 +4,7 @@
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Contest</title>
+        <title>E-Learning PTIT</title>
         <link rel="stylesheet" href="../../Views/css/loginstyle.css">
         <link rel="stylesheet" href="../../Views/css/basestyle.css">
         <link rel="stylesheet" href="../../Views/css/tintuc.css">
@@ -23,7 +23,7 @@
                      
                         <a href="qlContest.jsp" class="button-back-next1"><b>Quản Lý Contest</b></a>
                         <a href="qlBaitap.jsp" class="button-back-next1"><b>Quản Lý Bài Tập<b></a>
-                        <a href="" class="button-back-next1"><b>Home Page</b></a>
+                        <a href="admin.jsp" class="button-back-next1"><b>Trang chủ</b></a>
                     </div> 
                 </div>
                 <div id="headerLH1">
@@ -32,7 +32,7 @@
                         <div id="headerHoten" >
                         </div>
                         <div id="headerLuaCHon">
-                            <a href="../../Views/index.jsp" class="button-back-next1" style="padding: 20px 10px 10px 10px;"><b>Đăng Xuất</b></a>
+                            <a href="../../Views/logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;"><b>Đăng Xuất</b></a>
 
                             
                         </div>

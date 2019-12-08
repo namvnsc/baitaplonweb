@@ -4,7 +4,7 @@
     <head>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Register contest</title>
+        <title>E-Learning PTIT</title>
 
         <link rel="stylesheet" href="../../Views/css/loginstyle.css">
         <link rel="stylesheet" href="../../Views/css/basestyle.css">
@@ -21,10 +21,10 @@
                 <div id="headerLH" style="margin: 0px">
                     <div class="DivMenu">
                         
-                        <a href="../../Views/TinTuc.jsp" class="button-back-next1"><b>News</b></a>
-                        <a href="list_contest.jsp" class="button-back-next1"><b>List Contest</b></a>
-                        <a href="../../Views/khoahoc.jsp" class="button-back-next1"><b>Courses<b></a>
-                                    <a href="../../Views/login.jsp" class="button-back-next1"><b>Home Page</b></a>
+                        <a href="../../Views/TinTuc.jsp" class="button-back-next1"><b>Tin tức</b></a>
+                        <a href="list_contest.jsp" class="button-back-next1"><b>Luyện tập</b></a>
+                        <a href="../../Views/khoahoc.jsp" class="button-back-next1"><b>Khóa học<b></a>
+                                    <a href="../../Views/login.jsp" class="button-back-next1"><b>Trang chủ</b></a>
                     </div> 
                 </div>
                 <div id="headerLH1">
@@ -32,7 +32,7 @@
                     <% if (session.getAttribute("username") != null) {%>
                         <div id="headerHoten">
                             <br>
-                            <span style="font-size: 15px">Hi, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
+                            <span style="font-size: 15px">Xin chào, <span style="font-weight: bolder"><%= session.getAttribute("hoten")%></span>
                         </div>
                         <div id="headerLuaCHon">
                             <a href="../../Views/logout" class="button-back-next1" style="padding: 20px 10px 10px 10px;"><b>Đăng Xuất</b></a>

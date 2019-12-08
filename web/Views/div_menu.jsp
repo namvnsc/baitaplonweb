@@ -14,10 +14,10 @@
     <body>
         <div class="DivMenu">
            
-            <a href="TinTuc.jsp" class="button-back-next1">News</a>
-            <a href="../contest/jsp/list_contest.jsp" class="button-back-next1">List Contest</a>
-            <a href="" class="button-back-next1">Courses</a>
-            <a href="login.jsp" class="button-back-next1">Home Page</a>
+            <a href="TinTuc.jsp" class="button-back-next1">Tin tức</a>
+            <a href="../contest/jsp/list_contest.jsp" class="button-back-next1">Luyện tập</a>
+            <a href="" class="button-back-next1">Khóa học</a>
+            <a href="login.jsp" class="button-back-next1">Trang chủ</a>
         </div>
     </body>
 </html>

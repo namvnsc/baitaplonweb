@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Sign Up</title>
+        <title>E-Learning PTIT</title>
         <link rel="stylesheet" href="css/basestyle.css">
         <link rel="stylesheet" href="css/loginstyle.css">
         <link rel="stylesheet" href="css/tintuc.css">
@@ -69,10 +69,10 @@
                 <div id="headerone22">
                     <div class="DivMenu">
                        
-                        <a href="TinTuc.jsp" class="button-back-next1"><b>News</b></a>
-                        <a href="../contest/jsp/list_contest.jsp" class="button-back-next1"><b>List Contest</b></a>
-                        <a href="khoahoc.jsp" class="button-back-next1"><b>Courses</b></a>
-                        <a href="login.jsp" class="button-back-next1"><b>Home Page</b></a>
+                        <a href="TinTuc.jsp" class="button-back-next1"><b>Tin tức</b></a>
+                        <a href="../contest/jsp/list_contest.jsp" class="button-back-next1"><b>Luyện tập</b></a>
+                        <a href="khoahoc.jsp" class="button-back-next1"><b>Khóa học</b></a>
+                        <a href="login.jsp" class="button-back-next1"><b>Trang chủ</b></a>
                     </div> 
                 </div>
                 <div id="headerone2">
