@@ -79,7 +79,7 @@ public class TaiKhoanDAOImpl implements TaiKhoanDAO{
     public void insertAccount(TaiKhoan a) {
         try {
             System.out.println(a.toString());
-            String sql = "insert into tai_khoan(password,id,username,hoten,email,sodienthoai) values(?,?,?,?,?,?);";
+            String sql = "insert into tai_khoan(password,id,username,hoten,email,sodienthoai,role) values(?,?,?,?,?,?,?);";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(3, a.getUsername());
             ps.setInt(2, Integer.parseInt((System.currentTimeMillis() + "").substring(8)));
@@ -87,6 +87,7 @@ public class TaiKhoanDAOImpl implements TaiKhoanDAO{
             ps.setString(4, a.getHoten());
             ps.setString(5, a.getEmail());
             ps.setString(6, a.getSdt());
+            ps.setString(7, a.getRole());
             int rs = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(TaiKhoanDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
